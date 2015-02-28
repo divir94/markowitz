@@ -22,8 +22,6 @@ angular
     ])
     .config(function ($routeProvider) {
         $routeProvider
-
-
             .when('/performance', {
                 templateUrl: 'views/performance.html',
                 controller: 'PerformanceCtrl',
@@ -42,4 +40,4 @@ angular
             .otherwise({
                 redirectTo: '/'
             });
-    });  
+    });

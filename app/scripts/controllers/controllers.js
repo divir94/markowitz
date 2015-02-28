@@ -1,6 +1,5 @@
 'use strict';
 
-
 var setHeights = function() {
     var windowH = $(window).outerHeight();
     var headerH = $('header').outerHeight();
@@ -9,9 +8,7 @@ var setHeights = function() {
     $('main').height(Math.ceil(windowH - headerH - footerH - navH));
 };
 
-
 angular.module('markoApp')
-
 
     .controller('DrawerCtrl', function ($scope, $http) {
         var sym_name;
@@ -24,10 +21,10 @@ angular.module('markoApp')
 
         $http.get(url)
             .success(function(data, status, headers, config) {
-    		    console.log(data);
+    		      console.log(data);
             })
             .error(function(data, status, headers, config) {
-    		    console.log('Error occurred, data given was ' + data);
+    		      console.log('Error occurred, data given was ' + data);
             });
     })
 
