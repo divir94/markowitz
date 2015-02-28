@@ -1,6 +1,84 @@
+@font-face {
+	font-family: Oxford;
+	src: url('../fonts/oxford.ttf');
+}
+
+
+
+html, body {font-family: "Helvetica";}
 html, body, div, span, h1, h2, h3, h4,
 h5, h6, p, a, img, i, ol, ul, li, form,
 label, table, caption, {
 	margin: 0;
 	padding: 0;
+}
+
+
+
+header {
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 1px solid #444;
+	overflow: auto;
+
+	div.header-inner {
+		margin: 0 auto;
+		width: calc(100% - 60px);
+
+		h1.title {
+			float: right;
+			font-family: Oxford;
+			font-size: 20px;
+			color: #333;
+		}
+	}
+}
+
+
+
+section.main {
+	float: left;
+	width: calc(100% - 250px - 1px);
+
+}
+
+
+
+section.drawer {
+	float: right;
+	width: 250px;
+	border-left: 1px solid #444;
+
+	div.drawer-contents {
+		width: 100%;
+		padding: 10px;
+	}
+}
+
+
+
+footer {
+	clear: both;
+	border-top: 1px solid #333;
+}
+
+
+
+nav.tabs {
+	width: 100%;
+	border-bottom: 1px solid #666;
+
+	ul {
+		width: 100%;
+
+		li {
+			display: inline-block;
+			padding: 10px 20px;
+			font-size: 13px;
+
+			i {
+				margin-right: 5px;
+			}
+		}
+	}
 }
