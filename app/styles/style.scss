@@ -68,7 +68,7 @@ section.drawer {
 		h4.section-title {
 			margin-bottom: 3px;
 			font-family: Oxford;
-			font-size: 13px;
+			font-size: 15px;
 			color: $text-bold;
 		}
 		input {
@@ -76,6 +76,7 @@ section.drawer {
 			width: calc(100% - 12px);
 			background-color: #fff;
 			border: 1px solid $bg-border;
+			outline: none;
 		}
 		ul {
 			width: 100%;

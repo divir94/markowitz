@@ -1,0 +1,91 @@
+<section class="drawer">
+    <div class="drawer-contents">
+        <div class="budget">
+            <h4 class="section-title">Budget</h4>
+            <input type="text" value="$100,000" />
+        </div>
+        <div class="your-stocks">
+            <h4 class="section-title">You</h4>
+            <autocomplete ng-model="selectedStock" data="stockTickers"></autocomplete>
+            <ul>
+                <li>
+                    <div class="stock-section">
+                        <h4 class="stock-code">AAPL</h4>
+                        <span class="stock-full">Apple Inc</span>
+                    </div>
+                    <div class="stock-section">
+                        <h5 class="stock-weight">37%</h5>
+                    </div>
+                    <div class="stock-section">
+                        <i class="stock-delete fa fa-times-circle"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="stock-section">
+                        <h4 class="stock-code">FB</h4>
+                        <span class="stock-full">Facebook Inc</span>
+                    </div>
+                    <div class="stock-section">
+                        <h5 class="stock-weight">20%</h5>
+                    </div>
+                    <div class="stock-section">
+                        <i class="stock-delete fa fa-times-circle"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="stock-section">
+                        <h4 class="stock-code">MSFT</h4>
+                        <span class="stock-full">Microsoft Corporation</span>
+                    </div>
+                    <div class="stock-section">
+                        <h5 class="stock-weight">43%</h5>
+                    </div>
+                    <div class="stock-section">
+                        <i class="stock-delete fa fa-times-circle"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="markos-stocks">
+            <h4 class="section-title">Marko</h4>
+            <ul>
+                <li>
+                    <div class="stock-section">
+                        <h4 class="stock-code">GOOG</h4>
+                        <span class="stock-full">Google Inc</span>
+                    </div>
+                    <div class="stock-section">
+                        <h5 class="stock-weight">71%</h5>
+                    </div>
+                    <div class="stock-section">
+                        <i class="stock-delete fa fa-times-circle"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="stock-section">
+                        <h4 class="stock-code">GS</h4>
+                        <span class="stock-full">Goldman Sachs Group Inc</span>
+                    </div>
+                    <div class="stock-section">
+                        <h5 class="stock-weight">10%</h5>
+                    </div>
+                    <div class="stock-section">
+                        <i class="stock-delete fa fa-times-circle"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="stock-section">
+                        <h4 class="stock-code">JPM</h4>
+                        <span class="stock-full">JPMorgan Chase</span>
+                    </div>
+                    <div class="stock-section">
+                        <h5 class="stock-weight">19%</h5>
+                    </div>
+                    <div class="stock-section">
+                        <i class="stock-delete fa fa-times-circle"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
