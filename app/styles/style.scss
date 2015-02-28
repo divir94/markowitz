@@ -187,21 +187,22 @@ section.drawer {
 footer {
 	width: 100%;
 	clear: both;
-	background-color: #ecedf2;
+	background-color: #3b3231;
 	border-top: 1px solid $bg-border;
 
 	ul {
 		text-align: center;
-		padding: 0px 5px 6px 5px;
+		padding: 2px 5px 8px 5px;
 
 		li {
 			display: inline-block;
 			font-family: Oxford;
 			font-weight: bold;
-			font-size: 11px;
-			// color: $text-bold;
-			color: #cbcfda;
-			text-shadow: 1px 1px 1px #f9f9fb;
+			font-size: 13px;
+			// color: #cbcfda;
+			// color: #777;
+			// color: #5b3231;
+			text-shadow: 1px 1px 0px #515151;
 
 			a {
 				color: inherit;
@@ -218,8 +219,9 @@ footer {
 
 nav.tabs {
 	width: 100%;
-
+	background-color: #fff;
 	ul {
+		// padding-left: 10px;
 		width: 100%;
 
 		li {
@@ -230,12 +232,17 @@ nav.tabs {
 			a {
 				display: block;
 				padding: 15px 25px;
-				font-size: 12px;
 				color: #cbccd1;
 				text-decoration: none;
 
+				span {
+					display: block;
+					font-size: 12px;
+				}
 				i {
-					margin-right: 5px;
+					margin-top: 6px;
+					font-size: 29px;
+					color: $text-bold;
 				}
 			}
 		}
@@ -243,7 +250,7 @@ nav.tabs {
 			background-color: #f3f4f8;
 
 			a {
-				color: $text-bold;
+				color: #cbccd1;
 
 				i {
 					color: $bg-accent;
