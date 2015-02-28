@@ -1,59 +1,60 @@
 <!doctype html>
 <html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Marko</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>Marko</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!--Jquery and Font Awesome-->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <!--High Charts-->
-  <script src="http://code.highcharts.com/stock/highstock.js"></script>
-  <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
-  <script src="scripts/highcharts.js"></script>
-  <!--Custom-->
-  <link rel="stylesheet" href="styles/style.css">
-  <script src="scripts/style.js"></script>
-</head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="styles/style.css">
 
-<body ng-app="markoApp">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="scripts/highcharts/highstock.js"></script>
+    </head>
 
-<header>
-  <div class="header-inner">
-    <h1 class="title">MARKO</h1>
-  </div>
-</header>
+    <body ng-app="markoApp">
+
+        <header>
+          <div class="header-inner">
+            <h1 class="title">MARKO</h1>
+          </div>
+        </header>
 
 
-<section class="main">
-  <ng-include src="'views/tabs.html'"></ng-include>
-  <main ng-view></main>
-</section>
+        <section class="main">
+            <ng-include src="'views/tabs.html'"></ng-include>
+            <main ng-view></main>
+        </section>
 
 
-<ng-include ng-controller="DrawerCtrl" src="'views/drawer.html'"></ng-include>
+        <ng-include ng-controller="DrawerCtrl" src="'views/drawer.html'"></ng-include>
 
 
-<footer>
-  <ul>
-    <li><a href="https://www.linkedin.com/in/divirgupta/">Divir Gupta</a></li>
-    <li><a href="https://www.linkedin.com/in/nevilgeorge">Nevil George</a></li>
-    <li><a href="http://jonrovira.com">Jon Rovira</a></li>
-  </ul>
-</footer>
+        <footer>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/divirgupta/">Divir Gupta</a></li>
+                <li><a href="https://www.linkedin.com/in/nevilgeorge">Nevil George</a></li>
+                <li><a href="http://jonrovira.com">Jon Rovira</a></li>
+            </ul>
+        </footer>
 
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-touch/angular-touch.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script src="scripts/app.js"></script>
-<script src="scripts/controllers/controllers.js"></script>
-</body>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/functions.js"></script>
+        <script src="scripts/controllers/drawer_controller.js"></script>
+        <script src="scripts/controllers/performance_controller.js"></script>
+        <script src="scripts/controllers/correlation_controller.js"></script>
+        <script src="scripts/controllers/summary_controller.js"></script>
+    </body>
+
 </html>

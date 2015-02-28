@@ -1,14 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name markoApp
- * @description
- * # markoApp
- *
- * Main module of the application.
- */
-
 
 angular
     .module('markoApp', [
