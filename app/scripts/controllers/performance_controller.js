@@ -32,7 +32,9 @@ var createChart = function(seriesOptions) {
         },
         series: seriesOptions
     });
+    $('#line-chart').height(Math.floor($('#line-chart').width()*0.75));
 };
+
 
 
 angular.module('markoApp').controller('PerformanceCtrl', function ($rootScope, $scope, $route) {
