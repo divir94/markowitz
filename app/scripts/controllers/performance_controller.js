@@ -4,12 +4,16 @@ var createChart = function(seriesOptions) {
             selected: 4
         },
         xAxis: {
+            lineColor: 'transparent',
+            minorTickLength: 0,
+            tickLength: 0,
             type: 'datetime',
             dateTimeLabelFormats: {
                 day: '%e of %b'
             }
         },
         yAxis: {
+            gridLineColor: 'transparent',
             labels: {
                 formatter: function () {
                     return (this.value > 0 ? ' + ' : '') + this.value + '%';
@@ -32,7 +36,7 @@ var createChart = function(seriesOptions) {
         },
         series: seriesOptions
     });
-    $('#line-chart').height(Math.floor($('#line-chart').width()*0.75));
+
 };
 
 

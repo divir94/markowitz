@@ -18,11 +18,6 @@ angular
                 controller: 'PerformanceCtrl',
                 activeTab: 'performance'
             })
-            .when('/correlation', {
-                templateUrl: 'views/correlation.html',
-                controller: 'CorrelationCtrl',
-                activeTab: 'correlation'
-            })
             .when('/summary', {
                 templateUrl: 'views/summary.html',
                 controller: 'SummaryCtrl',

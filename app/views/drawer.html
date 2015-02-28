@@ -1,17 +1,13 @@
 <section class="drawer">
     <div class="drawer-contents">
-        <div class="budget">
-            <h4 class="section-title">Budget</h4>
-            <input type="text" value="$100,000" />
-        </div>
         <div class="your-stocks">
             <h4 class="section-title">Selected Stocks</h4>
             <input type="text" ng-model="selected" typeahead="ticker for ticker in tickers | filter:$viewValue | limitTo:8"
                    typeahead-on-select="addTicker($item); selected=''" class="form-control"
                    placeholder="Add a stock">
 
-            <ul ng-repeat="ticker in selectedTickers" class="stock-list">
-                <li>
+            <ul class="stock-list">
+                <li ng-repeat="ticker in selectedTickers">
                     <div class="stock-section">
                         <h4 class="stock-code">{{ticker}}</h4>
                         <span class="stock-full">{{tickerDict[ticker]}}</span>
@@ -19,12 +15,16 @@
                     <div class="stock-section">
                         <h5 class="stock-weight">{{100/selectedTickers.length | number:0}}%</h5>
                     </div>
-                    <div ng-click="deleteStock($index)" class="stock-section">
+                    <div class="stock-section" ng-class="{hover: hovering}" ng-mouseenter="hovering = true" ng-mouseleave="hovering = false" ng-click="deleteStock($index)">
                         <i class="stock-delete fa fa-times-circle"></i>
                     </div>
                 </li>
 
             </ul>
+        </div>
+        <div class="stock-correlation">
+            <h4 class="section-title">Stock Correlation</h4>
+            <img src="images/d3_correlation.png" />
         </div>
     </div>
 </section>
