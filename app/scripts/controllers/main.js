@@ -20,19 +20,21 @@ angular.module('markoApp')
     // 		console.log(data);
     // 	});
 
-  	$http.get('scripts/stock-names.json')
-  		.then(function(data, status, headers, config) {
-  			sym_name = data.data;
-  			var tickerArr = [];
-  			var nameArr = [];
-  			for (var k in sym_name) {
-  				tickerArr.push(k);
-  				nameArr.push(sym_name[k]);
-  				name_sym[sym_name[k]] = k;
-  			}
-  			$scope.stockTickers = tickerArr.concat(nameArr);
-  			console.log($scope.stockTickers);
-  		});
+    $scope.stockTickers = ['AAPL', 'GS', 'MSFT', 'FB', 'GOOG', 'JPM'];
+    console.log($scope.stockTickers);
+  	// $http.get('scripts/stock-names.json')
+  	// 	.then(function(data, status, headers, config) {
+  	// 		sym_name = data.data;
+  	// 		var tickerArr = [];
+  	// 		var nameArr = [];
+  	// 		for (var k in sym_name) {
+  	// 			tickerArr.push(k);
+  	// 			nameArr.push(sym_name[k]);
+  	// 			name_sym[sym_name[k]] = k;
+  	// 		}
+  	// 		$scope.stockTickers = tickerArr.concat(nameArr);
+  	// 		console.log($scope.stockTickers);
+  	// 	});
 
   	// $scope.getStockName = function() {
   	// 	if (!sym_name[$scope.selectedStock]) {
