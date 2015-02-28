@@ -563,9 +563,8 @@
         qb = G.animate,
         gb =
         G.stop;
-    /* Colors edited by Jon Rovira */
     F = {
-        // colors: "#7cb5ec,#434348,#90ed7d,#f7a35c,#8085e9,#f15c80,#e4d354,#2b908f,#f45b5b,#91e8e1".split(","),
+        /* Colors edited by Jon Rovira */
         colors: "#ee7a53,#4b98dc,#4fc281,#353947,#B1E337,#B22B43,#33BFC4,#3C183D,#E8A30B,#B3AFF2".split(","),
         symbols: ["circle", "diamond", "square", "triangle", "triangle-down"],
         lang: {
@@ -8528,8 +8527,9 @@
                 f = this.handles,
                 g = this.navigatorOptions.handles,
                 g = {
-                    fill: g.backgroundColor,
-                    stroke: g.borderColor,
+                    /* Edited by Jon Rovira */
+                    fill: "#aaa",
+                    stroke: "#aaa",
                     "stroke-width": 1
                 },
                 h;
@@ -8629,12 +8629,14 @@
                         }).add(k), this.scrollbar = m = f.rect().attr({
                             y: -G % 2 / 2,
                             height: n,
-                            fill: s.barBackgroundColor,
-                            stroke: s.barBorderColor,
+                            /* Edited by Jon Rovira */
+                            fill: "#999",
+                            stroke: "#999",
                             "stroke-width": G,
                             r: H
                         }).add(k), this.scrollbarRifles = f.path().attr({
-                            stroke: s.rifleColor,
+                            /* Edited by Jon Rovira */
+                            stroke: "#999",
                             "stroke-width": 1
                         }).add(k)
                     }
@@ -9146,7 +9148,8 @@
                 padding: 2,
                 width: f.inputBoxWidth || 90,
                 height: f.inputBoxHeight || 17,
-                stroke: f.inputBoxBorderColor || "silver",
+                // stroke: f.inputBoxBorderColor || "silver",
+                stroke: "#eee",
                 "stroke-width": 1
             }).css(y({
                 textAlign: "center",
