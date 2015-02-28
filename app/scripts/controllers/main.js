@@ -31,6 +31,7 @@ angular.module('markoApp')
   				name_sym[sym_name[k]] = k;
   			}
   			$scope.stockTickers = tickerArr.concat(nameArr);
+  			console.log($scope.stockTickers);
   		});
 
   	// $scope.getStockName = function() {
