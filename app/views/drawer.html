@@ -6,8 +6,8 @@
         </div>
         <div class="your-stocks">
             <h4 class="section-title">You</h4>
-            <autocomplete ng-model="selectedStock" data="stockTickers"></autocomplete>
-            <ul>
+            <autocomplete ng-model="selectedStock" data="stockTickers" attr-placeholder="Add a stock"></autocomplete>
+            <ul class="stock-list">
                 <li>
                     <div class="stock-section">
                         <h4 class="stock-code">AAPL</h4>
@@ -48,7 +48,7 @@
         </div>
         <div class="markos-stocks">
             <h4 class="section-title">Marko</h4>
-            <ul>
+            <ul class="stock-list">
                 <li>
                     <div class="stock-section">
                         <h4 class="stock-code">GOOG</h4>

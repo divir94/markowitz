@@ -8,6 +8,8 @@
  *
  * Main module of the application.
  */
+
+
 angular
   .module('markoApp', [
     'ngAnimate',
@@ -21,12 +23,19 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/performance.html',
+        controller: 'PerformanceCtrl',
+        activeTab: 'performance'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/correlation', {
+        templateUrl: 'views/correlation.html',
+        controller: 'CorrelationCtrl',
+        activeTab: 'correlation'
+      })
+      .when('/summary', {
+        templateUrl: 'views/summary.html',
+        controller: 'SummaryCtrl',
+        activeTab: 'summary'
       })
       .otherwise({
         redirectTo: '/'
