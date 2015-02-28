@@ -5,6 +5,14 @@
 
 
 
+$text-bold:  #505861;
+$text-light: #c2c3c8;
+$bg-accent:  #e85f3d;
+$bg-border:  #d8d9dc;
+$bg-light:   #fafafc;
+
+
+
 html, body {font-family: "Helvetica";}
 html, body, div, span, h1, h2, h3, h4,
 h5, h6, p, a, img, i, ol, ul, li, form,
@@ -18,7 +26,7 @@ label, table, caption, {
 header {
 	width: 100%;
 	padding: 10px 0;
-	border-bottom: 1px solid #444;
+	border-bottom: 1px solid $bg-border;
 	overflow: auto;
 
 	div.header-inner {
@@ -29,7 +37,7 @@ header {
 			float: right;
 			font-family: Oxford;
 			font-size: 20px;
-			color: #333;
+			color: $text-bold;
 		}
 	}
 }
@@ -40,6 +48,9 @@ section.main {
 	float: left;
 	width: calc(100% - 250px - 1px);
 
+	main {
+		background-color: #f3f4f8;
+	}
 }
 
 
@@ -47,38 +58,164 @@ section.main {
 section.drawer {
 	float: right;
 	width: 250px;
-	border-left: 1px solid #444;
+	background-color: $bg-light;
+	border-left: 1px solid $bg-border;
 
 	div.drawer-contents {
-		width: 100%;
+		width: calc(100% - 20px);
 		padding: 10px;
+
+		h4.section-title {
+			margin-bottom: 3px;
+			font-family: Oxford;
+			font-size: 13px;
+			color: $text-bold;
+		}
+		input {
+			padding: 5px 5px;
+			width: calc(100% - 12px);
+			background-color: #fff;
+			border: 1px solid $bg-border;
+		}
+		ul {
+			width: 100%;
+			list-style: none;
+
+			li {
+				margin: 5px 0;
+				width: 100%;
+				font-weight: Helvetica;
+				font-size: 11px;
+				color: #ecf1f5;
+				background-color: #a8c3d6;
+				cursor: pointer;
+
+				div.stock-section {
+					display: inline-block;
+					padding: 6px 6px;
+					height: 22px;
+					vertical-align: top;
+					border-right: 1px solid #b6ccda;
+				}
+				div.stock-section:first-child {
+					width: 132px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+
+					h4.stock-code {
+						margin-bottom: 2px;
+						color: #fff;
+					}
+				}
+				div.stock-section:nth-child(2) {
+					padding: 6px 4px;
+					width: 31px;
+					text-align: center;
+
+					h5.stock-weight {
+						position: relative;
+						top: 7px;
+						font-weight: normal;
+						font-size: 11px;
+					}
+				}
+				div.stock-section:last-child {
+					float: right;
+					width: 30px;
+					text-align: center;
+					border: none;
+
+					i.stock-delete {
+						position: relative;
+						top: 5px;
+						font-size: 14px;
+						color: #ecf1f5;
+					}
+				}
+			}
+			li:hover {
+				opacity: 0.9;
+			}
+		}
+		div.budget {
+
+			input {
+				color: $text-bold;
+			}
+		}
+		div.your-stocks, div.markos-stocks {
+			margin-top: 60px;
+		}
 	}
 }
 
 
 
 footer {
+	width: 100%;
 	clear: both;
-	border-top: 1px solid #333;
+	border-top: 1px solid $bg-border;
+
+	ul {
+		text-align: center;
+		padding: 5px;
+
+		li {
+			display: inline-block;
+			font-family: Oxford;
+			font-weight: bold;
+			font-size: 10px;
+			color: $text-bold;
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+		}
+		li:nth-child(2) {
+			margin: 0 60px;
+		}
+	}
 }
 
 
 
 nav.tabs {
 	width: 100%;
-	border-bottom: 1px solid #666;
 
 	ul {
 		width: 100%;
 
 		li {
+			position: relative;
 			display: inline-block;
-			padding: 10px 20px;
+			padding: 12px 20px;
+			font-family: Oxford;
 			font-size: 13px;
+			color: #cbccd1;
 
 			i {
 				margin-right: 5px;
 			}
+		}
+		li.active {
+			color: $text-bold;
+			background-color: #f3f4f8;
+
+			i {
+				color: $bg-accent;
+			}
+		}
+		li.active:before {
+			position: absolute;
+			top: -1px;
+			left: 0;
+			content: "";
+			width: 100%;
+			height: 4px;
+			background-color: $bg-accent;
+			z-index: 1;
 		}
 	}
 }
