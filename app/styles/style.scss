@@ -187,18 +187,21 @@ section.drawer {
 footer {
 	width: 100%;
 	clear: both;
+	background-color: #ecedf2;
 	border-top: 1px solid $bg-border;
 
 	ul {
 		text-align: center;
-		padding: 3px 5px 6px 5px;
+		padding: 0px 5px 6px 5px;
 
 		li {
 			display: inline-block;
 			font-family: Oxford;
 			font-weight: bold;
 			font-size: 11px;
-			color: $text-bold;
+			// color: $text-bold;
+			color: #cbcfda;
+			text-shadow: 1px 1px 1px #f9f9fb;
 
 			a {
 				color: inherit;
@@ -270,5 +273,20 @@ section.performance {
 		margin: 0 auto 0 auto;
 		padding-top: 50px;
 		width: 80%;
+	}
+}
+
+
+
+section.correlation {
+	text-align: center;
+
+	img {
+		display: inline-block;
+		padding-top: 50px;
+		width: 35%;
+	}
+	img:first-child {
+		margin-right: 80px;
 	}
 }

@@ -22,7 +22,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/performance', {
         templateUrl: 'views/performance.html',
         controller: 'PerformanceCtrl',
         activeTab: 'performance'
