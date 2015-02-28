@@ -1,6 +1,6 @@
 $(function () {
   var seriesOptions = [],
-    seriesCounter = 0,
+    seriesCounter = 0;
 
   // create the chart when all data is loaded
     createChart = function () {
@@ -49,10 +49,8 @@ $(function () {
           return [ Date.parse(obj[0]), obj[1]];
         })
       };
-      createChart();
+      seriesCounter += 1;
+      if (seriesCounter === names.length) createChart();
     });
-
-    seriesCounter += 1;
-    if (seriesCounter === names.length) createChart();
   });
 });

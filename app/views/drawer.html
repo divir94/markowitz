@@ -5,86 +5,25 @@
             <input type="text" value="$100,000" />
         </div>
         <div class="your-stocks">
-            <h4 class="section-title">You</h4>
-            <autocomplete ng-model="selectedStock" data="stockTickers" attr-placeholder="Add a stock"></autocomplete>
-            <ul class="stock-list">
+            <h4 class="section-title">Selected Stocks</h4>
+            <input type="text" ng-model="selected" typeahead="ticker for ticker in tickers | filter:$viewValue | limitTo:8"
+                   typeahead-on-select="addTicker($item); selected=''" class="form-control"
+                   placeholder="Add a stock">
+
+            <ul ng-repeat="ticker in selectedTickers" class="stock-list">
                 <li>
                     <div class="stock-section">
-                        <h4 class="stock-code">AAPL</h4>
-                        <span class="stock-full">Apple Inc</span>
+                        <h4 class="stock-code">{{ticker}}</h4>
+                        <span class="stock-full">{{tickerDict[ticker]}}</span>
                     </div>
                     <div class="stock-section">
-                        <h5 class="stock-weight">37%</h5>
+                        <h5 class="stock-weight">{{100/selectedTickers.length | number:0}}%</h5>
                     </div>
-                    <div class="stock-section">
+                    <div ng-click="deleteStock($index)" class="stock-section">
                         <i class="stock-delete fa fa-times-circle"></i>
                     </div>
                 </li>
-                <li>
-                    <div class="stock-section">
-                        <h4 class="stock-code">FB</h4>
-                        <span class="stock-full">Facebook Inc</span>
-                    </div>
-                    <div class="stock-section">
-                        <h5 class="stock-weight">20%</h5>
-                    </div>
-                    <div class="stock-section">
-                        <i class="stock-delete fa fa-times-circle"></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="stock-section">
-                        <h4 class="stock-code">MSFT</h4>
-                        <span class="stock-full">Microsoft Corporation</span>
-                    </div>
-                    <div class="stock-section">
-                        <h5 class="stock-weight">43%</h5>
-                    </div>
-                    <div class="stock-section">
-                        <i class="stock-delete fa fa-times-circle"></i>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="markos-stocks">
-            <h4 class="section-title">Marko</h4>
-            <ul class="stock-list">
-                <li>
-                    <div class="stock-section">
-                        <h4 class="stock-code">GOOG</h4>
-                        <span class="stock-full">Google Inc</span>
-                    </div>
-                    <div class="stock-section">
-                        <h5 class="stock-weight">71%</h5>
-                    </div>
-                    <div class="stock-section">
-                        <i class="stock-delete fa fa-times-circle"></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="stock-section">
-                        <h4 class="stock-code">GS</h4>
-                        <span class="stock-full">Goldman Sachs Group Inc</span>
-                    </div>
-                    <div class="stock-section">
-                        <h5 class="stock-weight">10%</h5>
-                    </div>
-                    <div class="stock-section">
-                        <i class="stock-delete fa fa-times-circle"></i>
-                    </div>
-                </li>
-                <li>
-                    <div class="stock-section">
-                        <h4 class="stock-code">JPM</h4>
-                        <span class="stock-full">JPMorgan Chase</span>
-                    </div>
-                    <div class="stock-section">
-                        <h5 class="stock-weight">19%</h5>
-                    </div>
-                    <div class="stock-section">
-                        <i class="stock-delete fa fa-times-circle"></i>
-                    </div>
-                </li>
+
             </ul>
         </div>
     </div>
