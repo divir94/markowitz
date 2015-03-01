@@ -2,28 +2,29 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
     $rootScope.activeTab = $route.current.activeTab;
     setHeights();
 
-    var seriesOptions = [],
-        seriesCounter = 0;
+    var apikey = 'J7hxBtcABx8AsszfDzq-';
+    $scope.tickers = [];
+    $scope.tickerDict;
+    $scope.selected = undefined;
 
-    angular.element(document).ready(function () {
-        var names = ['AAPL', 'GOOGL'];
+    $http.get('data/stock-names.json')
+    .success(function(data, status, headers, config) {
+      var tickerArr = [];
+      for (var ticker in data) tickerArr.push(ticker);
+          $scope.tickerDict = data;
+      $scope.tickers = tickerArr;
+  })
+    .error(function(data, status, headers, config) {
+      console.log('Error occurred, data given was ' + data);
+  });
 
-        $.each(names, function (i, name) {
-            $.getJSON('https://www.quandl.com/api/v1/datasets/WIKI/'+name+'.json?exclude_headers=true&sort_order=asc&column=11&collapse=daily&auth_token=J7hxBtcABx8AsszfDzq-', function (result) {
-                seriesOptions[i] = {
-                    name: name,
-                    data: result.data.map(function(obj) {
-                        return [ Date.parse(obj[0]), obj[1]];
-                    })
-                };
-            })
-            .done(function() {
-                seriesCounter += 1;
-                if (seriesCounter == names.length) {
-                    $('section.loader').remove();
-                    createChart(seriesOptions);
-                }
-            });
-        });
-    });
-})
+    $scope.addTicker = function(item) {
+        console.log(item);
+        $rootScope.newTicker = item;
+    }
+
+    $scope.deleteStock = function(index) {
+        $rootScope.removeTicker = index;
+    }
+
+});
