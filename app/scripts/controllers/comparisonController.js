@@ -95,7 +95,7 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
                 })
                 };
               seriesOptions.push(temp);
-              $('section.loader').remove();
+              $('section.loader').hide();
               createChart(seriesOptions);
           })
         .error(function(data, status, headers, config) {
@@ -110,6 +110,7 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
     // watch for change on newTicker
     $rootScope.$watch('newTicker', function() {
         console.log($rootScope.newTicker);
+        $('section.loader').show();
         addLine($rootScope.newTicker);
     });
 
