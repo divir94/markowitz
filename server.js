@@ -15,6 +15,8 @@ app.use(express.static(__dirname + '/dist'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/styles', express.static(__dirname + '/app/styles'));
 
+app.set('port', (process.env.PORT || 8080));
+
 // routes ==================================================
 app.get('*', function(req, res) {
 	res.sendFile('./app/index.html');
@@ -22,9 +24,9 @@ app.get('*', function(req, res) {
 
 // start app ===============================================
 // startup our app at http://localhost:8080
-app.listen(8080, function() {
+app.listen(app.get('port'), function() {
 	// shoutout to the user                     
-	console.log('Magic happens on port 8080');
+	console.log('Magic happens on port ' + app.get('port'));
 });
 
 // expose app           
