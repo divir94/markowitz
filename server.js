@@ -15,6 +15,7 @@ app.use(express.static(__dirname + '/dist'));
 
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/styles', express.static(__dirname + '/app/styles'));
+app.use('/scripts', express.static(__dirname + '/app/scripts'));
 
 app.set('view engine', 'html');
 app.set('port', (process.env.PORT || 8080));
