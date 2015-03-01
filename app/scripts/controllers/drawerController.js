@@ -14,30 +14,30 @@ var setDrawerHeight = function() {
 
 angular.module('markoApp').controller('DrawerCtrl', function ($scope, $http, $rootScope) {
   setDrawerHeight();
+  console.log('Hello');
 
   var apikey = 'J7hxBtcABx8AsszfDzq-';
   $scope.tickers = [];
   $scope.tickerDict;
   $scope.selected = undefined;
-  $rootScope.selectedTickers = [];
 
-
-    $http.get('data/stock-names.json')
-        .success(function(data, status, headers, config) {
-            var tickerArr = [];
-            for (var ticker in data) tickerArr.push(ticker);
-            $scope.tickerDict = data;
-            $scope.tickers = tickerArr;
-        })
-        .error(function(data, status, headers, config) {
-            console.log('Error occurred, data given was ' + data);
-        });
+  $http.get('data/stock-names.json')
+      .success(function(data, status, headers, config) {
+          var tickerArr = [];
+          for (var ticker in data) tickerArr.push(ticker);
+          $scope.tickerDict = data;
+          $scope.tickers = tickerArr;
+      })
+      .error(function(data, status, headers, config) {
+          console.log('Error occurred, data given was ' + data);
+      });
 
   $scope.addTicker = function(item) {
-    if ($rootScope.selectedTickers.indexOf(item) === -1) $rootScope.selectedTickers.push(item);
+    console.log(item);
+    $rootScope.newTicker = item;
   }
 
   $scope.deleteStock = function(index) {
-    $rootScope.selectedTickers.splice(index, 1);
+    $rootScope.removeTicker = index;
   }
 })
