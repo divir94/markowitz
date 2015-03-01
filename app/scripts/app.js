@@ -28,11 +28,6 @@ angular
                 controller: 'ComparisonCtrl',
                 activeTab: 'comparison'
             })
-            .when('/summary', {
-              templateUrl: 'views/summary.html',
-              controller: 'SummaryCtrl',
-              activeTab: 'summary'
-            })
             .otherwise({
                 redirectTo: '/'
             });

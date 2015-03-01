@@ -14,12 +14,10 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
             stocks: item
         }})
         .success(function(data, status, headers, config) {
-            console.log(data);
                 // do nothing if empty array returned
                 if (data.length === 0) {
                     return;
                 }
-                console.log('displaying');
                 var stock = data[0];
                 var temp = {
                   name: item,
@@ -44,7 +42,6 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
 
     // watch for change on newTicker
     $rootScope.$watch('newTicker', function() {
-        console.log($rootScope.newTicker);
         $('section.loader').show();
         addLine($rootScope.newTicker);
     });

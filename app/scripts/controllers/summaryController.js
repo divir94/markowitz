@@ -1,7 +1,7 @@
 angular.module('markoApp').controller('SummaryCtrl', function ($scope) {
   $scope.master = {}; // MASTER DATA STORED BY YEAR
 
-  $scope.selected_year = 2005;
+  $scope.selected_year = 1870;
   $scope.years = d3.range(2005, 1865, -5);
 
   $scope.filters = {};
