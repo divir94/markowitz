@@ -8,6 +8,7 @@ var app            = express();
     
 
 // set the static files location /public/img will be /img for users
+app.use(express.static(__dirname)); 
 app.use(express.static(__dirname + '/app')); 
 app.use(express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/dist'));
@@ -15,6 +16,7 @@ app.use(express.static(__dirname + '/dist'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/styles', express.static(__dirname + '/app/styles'));
 
+app.set('view engine', 'html');
 app.set('port', (process.env.PORT || 8080));
 
 // routes ==================================================
