@@ -2,11 +2,7 @@
     <div class="drawer-contents">
         <div class="selected-stocks">
             <h4 class="section-title">Selected Stocks</h4>
-            <input type="text" ng-model="selected" typeahead="ticker for ticker in tickers | filter:$viewValue | limitTo:8"
-                   typeahead-on-select="addTicker($item); selected=''" class="form-control"
-                   placeholder="Add a stock"/>
-
-            {{selectedTickers}}
+            <input type="text" ng-model="selected" typeahead="ticker for ticker in tickers | filter:$viewValue | limitTo:8" typeahead-on-select="addTicker($item); selected=''" class="form-control" placeholder="Add a stock"/>
             <ul class="stock-list">
                 <li ng-repeat="ticker in selectedTickers">
                     <div class="stock-section">
@@ -22,8 +18,5 @@
                 </li>
             </ul>
         </div>
-        <!--<div class="stock-correlation">-->
-            <!--<h4 class="section-title">Stock Correlation</h4>-->
-        <!--</div>-->
     </div>
 </section>
