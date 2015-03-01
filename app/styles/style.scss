@@ -50,7 +50,7 @@ header {
 
 section.main {
 	float: left;
-	width: calc(100% - 330px - 1px);
+	width: calc(100% - 420px - 1px);
 
 	main {
 		position: relative;
@@ -62,7 +62,7 @@ section.main {
 
 section.drawer {
 	float: right;
-	width: 330px;
+	width: 420px;
 	background-color: $bg-light;
 	border-left: 1px solid $bg-border;
 
@@ -72,22 +72,24 @@ section.drawer {
 
 		h4.section-title {
 			margin-bottom: 3px;
-			font-size: 14px;
+			font-size: 11px;
 			color: $text-bold;
 		}
-		div.selected-stocks {
+		div.selected-portfolio, div.selected-method {
+			width: calc(50% - 20px);
 			position: relative;
+			display: inline-block;
 
 			input {
 				padding: 5px 5px;
-				width: calc(100% - 12px);
+				width: calc(100% - 20px);
 				background-color: #fff;
 				border: 1px solid $bg-border;
 				outline: none;
 			}
 			ul.dropdown-menu {
 				position: absolute;
-				width: calc(100% - 2px);
+				width: calc(100% - 10px);
 				list-style: none;
 				background-color: #fff;
 				border: 1px solid $bg-border;
@@ -112,8 +114,8 @@ section.drawer {
 				overflow-y: scroll;
 
 				li {
-					margin: 5px 0;
-					width: calc(100% - 2px);
+					margin: 5px 0 5px 1px;
+					width: calc(100% - 11px);
 					font-size: 10px;
 					color: #ecf1f5;
 					background-color: #a8c3d6;
@@ -130,7 +132,7 @@ section.drawer {
 						border-right: 1px solid #b6ccda;
 					}
 					div.stock-section:first-child {
-						width: 209px;
+						width: 89px;
 						overflow: hidden;
 						white-space: nowrap;
 						text-overflow: ellipsis;
@@ -157,7 +159,7 @@ section.drawer {
 					}
 					div.stock-section:last-child {
 						float: right;
-						width: 30px;
+						width: 20px;
 						text-align: center;
 						border: none;
 
