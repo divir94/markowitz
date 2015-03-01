@@ -1,4 +1,4 @@
-angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScope, $scope, $route) {
+angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScope, $scope, $route, $http) {
     $rootScope.activeTab = $route.current.activeTab;
     setHeights();
 
