@@ -30,7 +30,7 @@ label, table, caption, {
 header {
 	width: 100%;
 	padding: 10px 0 5px 0;
-	border-bottom: 1px solid $bg-border;
+	background-color: #333;
 	overflow: auto;
 
 	div.header-inner {
@@ -41,7 +41,7 @@ header {
 			float: right;
 			font-family: Oxford;
 			font-size: 26px;
-			color: $text-bold;
+			color: $text-light;
 		}
 	}
 }
@@ -196,7 +196,7 @@ footer {
 	bottom: 0;
 	width: 100%;
 	clear: both;
-	background-color: $text-bold;
+	background-color: #333;
 	border-top: 1px solid $bg-border;
 
 	ul {
@@ -207,8 +207,8 @@ footer {
 			display: inline-block;
 			font-weight: bold;
 			font-size: 11px;
-			color: darken($text-bold, 10%);
-			text-shadow: 0 1px 0px lighten($text-bold, 10%);
+			color: #212121;
+			text-shadow: 0 1px 0 #555;
 
 			a {
 				color: inherit;
@@ -216,7 +216,7 @@ footer {
 			}
 		}
 		li:nth-child(2) {
-			margin: 0 60px;
+			margin: 0 70px;
 		}
 	}
 }
