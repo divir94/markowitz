@@ -32,7 +32,6 @@ angular.module('markoApp').controller('CorrelationCtrl', function ($rootScope, $
       }})
       .success(function(data, status, headers, config) {
         $rootScope.corrMatrix = data;
-        console.log(data.toString());
         var result = {
           packageNames: test2,
           matrix: data

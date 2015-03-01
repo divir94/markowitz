@@ -39,7 +39,7 @@ var createChart = function(seriesOptions, tab) {
         point: {
           events: {
             mouseOver: function (event) {
-              if (tab == 1) $('#stock-change').html(Math.round(event.target.change)+'%');
+              if (tab == 1) $('#stocks-change').html(Math.round(event.target.change)+'%');
               else if (tab == 2)  $('#diversified-change').html(Math.round(event.target.change)+'%');
               else  $('#comparison-change').html(Math.round(event.target.change)+'%');
             }
