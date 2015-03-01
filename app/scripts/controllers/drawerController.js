@@ -18,6 +18,7 @@ angular.module('markoApp').controller('DrawerCtrl', function ($scope, $http, $ro
 
   var apikey = 'J7hxBtcABx8AsszfDzq-';
   $scope.tickers = [];
+  $scope.selectedTickers = [];
   $scope.tickerDict;
   $scope.selected = undefined;
 
@@ -35,6 +36,7 @@ angular.module('markoApp').controller('DrawerCtrl', function ($scope, $http, $ro
   $scope.addTicker = function(item) {
     console.log(item);
     $rootScope.newTicker = item;
+    $scope.selectedTickers.push(item);
   }
 
   $scope.deleteStock = function(index) {
