@@ -8,36 +8,37 @@ angular.module('markoApp').controller('DiversifiedPortfolioCtrl', function ($roo
 
     // helper functions
     var drawExistingLines = function() {
-      for (var i = 0; i < $rootScope.strategies.length; i++) {
-        addLine($rootScope.strategies[i]);
-      }
+        for (var i = 0; i < $rootScope.strategies.length; i++) {
+            addLine($rootScope.strategies[i]);
+        }
     }
 
     var addLine = function(item) {
-      // https://sleepy-cove-7513.herokuapp.com/french
+        // https://sleepy-cove-7513.herokuapp.com/french
         $http.get('https://sleepy-cove-7513.herokuapp.com/french', {
-          params: {
-            factor: item
-        }})
+            params: {
+                factor: item
+            }
+        })
         .success(function(data, status, headers, config) {
-                // do nothing if empty array returned
-                console.log(data);
-                if (data.length === 0) {
-                    return;
-                }
-                var stock = data;
-                var temp = {
-                  name: item,
-                  color: colors[$rootScope.strategies.length],
-                  dataLabels: name,
-                  data: stock.map(function(obj) {
+            // do nothing if empty array returned
+            console.log(data);
+            if (data.length === 0) {
+                return;
+            }
+            var stock = data;
+            var temp = {
+                name: item,
+                color: colors[$rootScope.strategies.length],
+                dataLabels: name,
+                data: stock.map(function(obj) {
                     return [Date.parse(obj[0]), obj[1]];
                 })
-                };
-              seriesOptions.push(temp);
-              $('section.loader').hide();
-              createChart(seriesOptions, 2);
-          })
+            };
+            seriesOptions.push(temp);
+            $('section.loader').hide();
+            createChart(seriesOptions, 2);
+        })
         .error(function(data, status, headers, config) {
             console.log('Error from addLine');
         })
@@ -51,14 +52,17 @@ angular.module('markoApp').controller('DiversifiedPortfolioCtrl', function ($roo
     // event listeners
     // add strategy
     $rootScope.$on('strategyAdd', function(event, data) {
-      $('section.loader').show();
-      addLine(data);
+        if ($rootScope.strategies.length == 1) {
+            $('section.nothing-to-load').hide();
+        }
+        $('section.loader').show();
+        addLine(data);
     });
 
     // remove strategy
     $rootScope.$on('strategyRemove', function(event, index) {
-      seriesOptions.splice(index, 1);
-      createChart(seriesOptions);
+        seriesOptions.splice(index, 1);
+        createChart(seriesOptions);
     });
 
 });
