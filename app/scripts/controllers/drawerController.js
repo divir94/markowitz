@@ -51,7 +51,8 @@ angular.module('markoApp')
 
   // add and remove stocks
   $scope.addStock = function(item) {
-    $rootScope.stocks.push(item);
+    var index = $rootScope.stocks.indexOf(item);
+    if (index == -1) $rootScope.stocks.push(item);
   }
 
   $scope.removeStock = function(item) {
@@ -61,8 +62,8 @@ angular.module('markoApp')
 
   // add and remove strategies
   $scope.addStrategy = function(item) {
-    console.log(item);
-    $rootScope.strategies.push(item);
+    var index = $rootScope.strategies.indexOf(item);
+    if (index == -1) $rootScope.strategies.push(item);
   }
 
   $scope.removeStrategy = function(item) {

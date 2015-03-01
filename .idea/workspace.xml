@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c6597fb-daca-4013-b6b9-5619737894aa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/correlation.html" afterPath="$PROJECT_DIR$/app/views/correlation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/drawer.html" afterPath="$PROJECT_DIR$/app/views/drawer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/summaryController.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/summaryController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/drawerController.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/drawerController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="markowitz.iws" />
@@ -29,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="drawerController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="drawerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/drawerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="332" max-vertical-offset="795">
-              <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.6142857" vertical-offset="355" max-vertical-offset="810">
+              <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
               <folding>
                 <element signature="e#33#468#0" expanded="false" />
                 <element signature="e#975#1134#0" expanded="false" />
@@ -85,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="drawer.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="drawer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/drawer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8404908" vertical-offset="431" max-vertical-offset="870">
-              <caret line="47" column="58" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
+            <state vertical-scroll-proportion="-18.916666" vertical-offset="281" max-vertical-offset="885">
+              <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -139,10 +137,10 @@
         <option value="$PROJECT_DIR$/app/scripts/factories/stocksFactory.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/data/strategy-names.json" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/drawerController.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/summaryController.js" />
         <option value="$PROJECT_DIR$/app/views/correlation.html" />
         <option value="$PROJECT_DIR$/app/views/drawer.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/drawerController.js" />
       </list>
     </option>
   </component>
@@ -703,6 +701,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/correlation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/summary.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="375">
@@ -727,18 +733,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/correlation.html">
+    <entry file="file://$PROJECT_DIR$/app/views/drawer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="33" />
+        <state vertical-scroll-proportion="-18.916666" vertical-offset="281" max-vertical-offset="885">
+          <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/drawerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="332" max-vertical-offset="795">
-          <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.6142857" vertical-offset="355" max-vertical-offset="810">
+          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
           <folding>
             <element signature="e#33#468#0" expanded="false" />
             <element signature="e#975#1134#0" expanded="false" />
@@ -746,14 +752,6 @@
             <element signature="e#1394#1563#0" expanded="false" />
             <element signature="e#1616#1684#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/drawer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8404908" vertical-offset="431" max-vertical-offset="870">
-          <caret line="47" column="58" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
