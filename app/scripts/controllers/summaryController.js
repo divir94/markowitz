@@ -1,7 +1,4 @@
-angular.module('markoApp').controller('SummaryCtrl', function ($rootScope, $scope, $route) {
-  $rootScope.activeTab = $route.current.activeTab;
-  setHeights();
-
+angular.module('markoApp').controller('SummaryCtrl', function ($scope) {
   $scope.master = {}; // MASTER DATA STORED BY YEAR
 
   $scope.selected_year = 2005;
