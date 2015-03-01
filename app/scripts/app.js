@@ -13,15 +13,20 @@ angular
     ])
     .config(function ($routeProvider) {
         $routeProvider
-            .when('/performance', {
-                templateUrl: 'views/performance.html',
-                controller: 'PerformanceCtrl',
-                activeTab: 'performance'
+            .when('/your-portfolio', {
+                templateUrl: 'views/your-portfolio.html',
+                controller: 'YourPortfolioCtrl',
+                activeTab: 'your_portfolio'
             })
-            .when('/summary', {
-                templateUrl: 'views/summary.html',
-                controller: 'SummaryCtrl',
-                activeTab: 'summary'
+            .when('/markos-portfolio', {
+                templateUrl: 'views/markos-portfolio.html',
+                controller: 'MarkosPortfolioCtrl',
+                activeTab: 'markos_portfolio'
+            })
+            .when('/overlay', {
+                templateUrl: 'views/overlay.html',
+                controller: 'OverlayCtrl',
+                activeTab: 'overlay'
             })
             .otherwise({
                 redirectTo: '/'

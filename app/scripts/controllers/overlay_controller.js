@@ -13,7 +13,7 @@ var createChart = function(seriesOptions) {
             }
         },
         yAxis: {
-            gridLineColor: 'transparent',
+            gridLineColor: '#f5f5f5',
             labels: {
                 formatter: function () {
                     return (this.value > 0 ? ' + ' : '') + this.value + '%';
@@ -41,7 +41,7 @@ var createChart = function(seriesOptions) {
 
 
 
-angular.module('markoApp').controller('PerformanceCtrl', function ($rootScope, $scope, $route) {
+angular.module('markoApp').controller('OverlayCtrl', function ($rootScope, $scope, $route) {
     $rootScope.activeTab = $route.current.activeTab;
     setHeights();
 
