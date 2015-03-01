@@ -1,0 +1,327 @@
+@font-face {
+  font-family: Oxford;
+  src: url("../fonts/oxford/oxford.ttf"); }
+@font-face {
+  font-family: Open-Sans;
+  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
+html, body {
+  font-family: "Open-Sans", Arial, Helvetica, sans-serif; }
+
+html, body, div, span, h1, h2, h3, h4,
+h5, h6, p, a, img, i, ol, ul, li, form,
+label, table, caption {
+  margin: 0;
+  padding: 0; }
+
+header {
+  width: 100%;
+  padding: 10px 0 5px 0;
+  background-color: #333;
+  overflow: auto; }
+  header div.header-inner {
+    margin: 0 auto;
+    width: calc(100% - 60px); }
+    header div.header-inner h1.title {
+      float: right;
+      font-family: Oxford;
+      font-size: 26px;
+      color: #c2c3c8; }
+
+section.main {
+  float: left;
+  width: calc(100% - 420px - 1px); }
+  section.main main {
+    position: relative;
+    background-color: #fff; }
+
+section.drawer {
+  float: right;
+  width: 420px;
+  background-color: #fafafc;
+  border-left: 1px solid #d8d9dc; }
+  section.drawer div.drawer-contents {
+    width: calc(100% - 20px);
+    padding: 10px; }
+    section.drawer div.drawer-contents h4.section-title {
+      margin-bottom: 3px;
+      font-size: 11px;
+      color: #505861; }
+    section.drawer div.drawer-contents div.selected-portfolio, section.drawer div.drawer-contents div.selected-method {
+      width: calc(50% - 20px);
+      position: relative;
+      display: inline-block; }
+      section.drawer div.drawer-contents div.selected-portfolio input, section.drawer div.drawer-contents div.selected-method input {
+        padding: 5px 5px;
+        width: calc(100% - 20px);
+        background-color: #fff;
+        border: 1px solid #d8d9dc;
+        outline: none; }
+      section.drawer div.drawer-contents div.selected-portfolio ul.dropdown-menu, section.drawer div.drawer-contents div.selected-method ul.dropdown-menu {
+        position: absolute;
+        width: calc(100% - 10px);
+        list-style: none;
+        background-color: #fff;
+        border: 1px solid #d8d9dc;
+        border-style: none solid;
+        opacity: 1.0;
+        z-index: 10; }
+        section.drawer div.drawer-contents div.selected-portfolio ul.dropdown-menu li, section.drawer div.drawer-contents div.selected-method ul.dropdown-menu li {
+          padding: 5px 0 5px 5px;
+          font-size: 11px;
+          border-bottom: 1px solid #d8d9dc; }
+        section.drawer div.drawer-contents div.selected-portfolio ul.dropdown-menu li:first-child, section.drawer div.drawer-contents div.selected-method ul.dropdown-menu li:first-child {
+          border-top: 1px solid #d8d9dc;
+          margin-top: 5px; }
+      section.drawer div.drawer-contents div.selected-portfolio ul.stock-list, section.drawer div.drawer-contents div.selected-method ul.stock-list {
+        width: 100%;
+        list-style: none;
+        overflow: hidden;
+        overflow-y: scroll; }
+        section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li, section.drawer div.drawer-contents div.selected-method ul.stock-list li {
+          margin: 5px 0 5px 1px;
+          width: calc(100% - 11px);
+          font-size: 10px;
+          color: #ecf1f5;
+          background-color: #a8c3d6;
+          border: 1px solid #8b9eac;
+          box-shadow: 0 1px 0 #cddbe6 inset;
+          border-radius: 1px;
+          cursor: pointer; }
+          section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li div.stock-section, section.drawer div.drawer-contents div.selected-method ul.stock-list li div.stock-section {
+            display: inline-block;
+            padding: 6px 6px;
+            height: 22px;
+            vertical-align: top;
+            border-right: 1px solid #b6ccda; }
+          section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li div.stock-section:first-child, section.drawer div.drawer-contents div.selected-method ul.stock-list li div.stock-section:first-child {
+            width: 81px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; }
+            section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li div.stock-section:first-child h4.stock-code, section.drawer div.drawer-contents div.selected-method ul.stock-list li div.stock-section:first-child h4.stock-code {
+              color: #fff; }
+            section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li div.stock-section:first-child span.stock-full, section.drawer div.drawer-contents div.selected-method ul.stock-list li div.stock-section:first-child span.stock-full {
+              position: relative;
+              top: -2px; }
+          section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li div.stock-section:nth-child(2), section.drawer div.drawer-contents div.selected-method ul.stock-list li div.stock-section:nth-child(2) {
+            padding: 6px 4px;
+            width: 31px;
+            text-align: center; }
+            section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li div.stock-section:nth-child(2) h5.stock-weight, section.drawer div.drawer-contents div.selected-method ul.stock-list li div.stock-section:nth-child(2) h5.stock-weight {
+              position: relative;
+              top: 4px;
+              font-weight: normal;
+              font-size: 11px; }
+          section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li div.stock-section:last-child, section.drawer div.drawer-contents div.selected-method ul.stock-list li div.stock-section:last-child {
+            float: right;
+            width: 20px;
+            text-align: center;
+            border: none; }
+            section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li div.stock-section:last-child i.stock-delete, section.drawer div.drawer-contents div.selected-method ul.stock-list li div.stock-section:last-child i.stock-delete {
+              position: relative;
+              top: 5px;
+              font-size: 14px;
+              color: #ecf1f5; }
+          section.drawer div.drawer-contents div.selected-portfolio ul.stock-list li div.stock-section:last-child.hover i.stock-delete, section.drawer div.drawer-contents div.selected-method ul.stock-list li div.stock-section:last-child.hover i.stock-delete {
+            color: #fff; }
+    section.drawer div.drawer-contents div.stock-correlation {
+      position: fixed;
+      bottom: 50px;
+      margin-top: 60px; }
+      section.drawer div.drawer-contents div.stock-correlation img {
+        width: 300px; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  clear: both;
+  background-color: #333;
+  border-top: 1px solid #d8d9dc; }
+  footer ul {
+    text-align: center;
+    padding: 2px 5px 8px 5px; }
+    footer ul li {
+      display: inline-block;
+      font-weight: bold;
+      font-size: 11px;
+      color: #212121;
+      text-shadow: 0 1px 0 #555; }
+      footer ul li a {
+        color: inherit;
+        text-decoration: none; }
+    footer ul li:nth-child(2) {
+      margin: 0 70px; }
+
+nav.tabs {
+  width: 100%;
+  background-color: #505861; }
+  nav.tabs ul {
+    padding-top: 15px;
+    padding-left: 20px;
+    width: 100%; }
+    nav.tabs ul li {
+      position: relative;
+      display: inline-block;
+      margin-right: -5px;
+      cursor: pointer;
+      background-color: #505861;
+      outline: none; }
+      nav.tabs ul li a {
+        display: block;
+        padding: 7px 0 15px 0;
+        color: #cbccd1;
+        text-decoration: none; }
+        nav.tabs ul li a div {
+          padding: 0 16px;
+          border: 1px solid #59626c;
+          border-style: none solid none solid; }
+          nav.tabs ul li a div i {
+            margin-right: 5px;
+            font-size: 14px; }
+          nav.tabs ul li a div span {
+            font-size: 11px; }
+          nav.tabs ul li a div h3 {
+            display: inline-block;
+            margin-top: -6px;
+            font-size: 40px; }
+          nav.tabs ul li a div h6 {
+            display: inline-block;
+            font-size: 12px; }
+    nav.tabs ul li.active {
+      background-color: #fff;
+      border-color: #fff;
+      border-radius: 3px 3px 0 0; }
+      nav.tabs ul li.active a {
+        color: #505861; }
+        nav.tabs ul li.active a div {
+          border: none; }
+          nav.tabs ul li.active a div i {
+            color: #e85f3d; }
+          nav.tabs ul li.active a div h3 {
+            color: #e85f3d; }
+    nav.tabs ul li:hover:not(.active) {
+      background-color: #5D6670; }
+
+section.stocks-portfolio, section.diversified-portfolio, section.comparison {
+  width: 100%; }
+  section.stocks-portfolio div.line-chart, section.diversified-portfolio div.line-chart, section.comparison div.line-chart {
+    margin-top: 0px;
+    width: 100%;
+    height: 507px; }
+
+section.correlation {
+  text-align: center; }
+  section.correlation img {
+    display: inline-block;
+    padding-top: 50px;
+    width: 35%; }
+  section.correlation img:first-child {
+    margin-right: 80px; }
+
+section.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 494px;
+  background-color: #fff;
+  z-index: 100; }
+  section.loader h3 {
+    position: absolute;
+    top: calc(50% + 52px);
+    left: calc(50% - 33px);
+    font-size: 13px;
+    color: #c2c3c8; }
+@keyframes move-cube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  20% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(-180deg); }
+  35% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(-180deg); }
+  50% {
+    transform: rotateX(-34.6deg) rotateY(44deg) rotateZ(0deg); }
+  65% {
+    transform: rotateX(-34.6deg) rotateY(44deg) rotateZ(0deg); }
+  80% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); } }
+@keyframes reverse-circles {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  20% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  35% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  50% {
+    transform: rotateX(35deg) rotateY(-35deg) rotateZ(0deg); }
+  65% {
+    transform: rotateX(35deg) rotateY(-35deg) rotateZ(0deg); }
+  80% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); } }
+  section.loader .loader-object {
+    margin-left: -25px;
+    margin-top: -25px;
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: move-cube infinite 2.37s; }
+  section.loader .plane-1, section.loader .plane-2, section.loader .plane-3 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    transform-style: preserve-3d; }
+  section.loader .plane-3 {
+    transform: translate3d(0px, 0px, -25px); }
+  section.loader .plane-2 {
+    transform: translate3d(0px, 0px, 0px); }
+  section.loader .plane-1 {
+    transform: translate3d(0px, 0px, 25px); }
+  section.loader .plane-1 div, section.loader .plane-2 div, section.loader .plane-3 div {
+    border-radius: 50%;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    animation: reverse-circles infinite 2.37s; }
+  section.loader .plane-1 div {
+    background: #c2c3c8; }
+  section.loader .plane-2 div {
+    background: #c2c3c8; }
+  section.loader .plane-3 div {
+    background: #c2c3c8; }
+  section.loader .top-left {
+    top: 0;
+    left: 0; }
+  section.loader .top-middle {
+    top: 0;
+    left: 22px; }
+  section.loader .top-right {
+    top: 0;
+    right: 0; }
+  section.loader .middle-left {
+    top: 22px;
+    left: 0; }
+  section.loader .middle-middle {
+    top: 22px;
+    left: 22px; }
+  section.loader .middle-right {
+    top: 22px;
+    right: 0; }
+  section.loader .bottom-left {
+    bottom: 0;
+    left: 0; }
+  section.loader .bottom-middle {
+    bottom: 0;
+    left: 22px; }
+  section.loader .bottom-right {
+    bottom: 0;
+    right: 0; }
+
+/*# sourceMappingURL=style.css.map */

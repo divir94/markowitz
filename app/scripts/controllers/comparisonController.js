@@ -35,10 +35,6 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
         })
     };
 
-    var removeLine = function(index) {
-
-    };
-
     // watch for change on newTicker
     $rootScope.$watch('newTicker', function() {
         $('section.loader').show();
@@ -46,7 +42,7 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
     });
 
     //https://sleepy-cove-7513.herokuapp.com/portfolio'
-    $http.get('http://localhost:5000/strategy', {
+    $http.get('https://sleepy-cove-7513.herokuapp.com/strategy', {
       params: {
         strategies: $rootScope.strategies
     }})
