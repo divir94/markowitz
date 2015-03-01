@@ -63,6 +63,7 @@ angular.module('markoApp').controller('MarkosPortfolioCtrl', function ($rootScop
             .done(function() {
                 seriesCounter += 1;
                 if (seriesCounter == names.length) {
+                    $('section.loader').remove();
                     createChart(seriesOptions);
                 }
             });

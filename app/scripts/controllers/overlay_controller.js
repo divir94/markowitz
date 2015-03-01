@@ -63,6 +63,7 @@ angular.module('markoApp').controller('OverlayCtrl', function ($rootScope, $scop
             .done(function() {
                 seriesCounter += 1;
                 if (seriesCounter == names.length) {
+                    $('section.loader').remove();
                     createChart(seriesOptions);
                 }
             });
