@@ -74,7 +74,7 @@ section.drawer {
 			font-size: 14px;
 			color: $text-bold;
 		}
-		div.your-stocks {
+		div.selected-stocks {
 			position: relative;
 
 			input {
@@ -168,7 +168,7 @@ section.drawer {
 						}
 					}
 					div.stock-section:last-child.hover {
-						
+
 						i.stock-delete {
 							color: #fff;
 						}
@@ -297,14 +297,14 @@ nav.tabs {
 
 
 
-section.your-portfolio, section.markos-portfolio, section.overlay {
+section.stocks-portfolio, section.diversified-portfolio, section.comparison {
 	width: 100%;
 
 	div#line-chart {
 		margin-top: 0px;
 		width: 100%;
 		height: 507px;
-	}	
+	}
 }
 
 

@@ -35,7 +35,6 @@ angular.module('markoApp').controller('DrawerCtrl', function ($scope, $http, $ro
 
   $scope.addTicker = function(item) {
     if ($rootScope.selectedTickers.indexOf(item) === -1) $rootScope.selectedTickers.push(item);
-    console.log($scope.selectedTickers);
   }
 
   $scope.deleteStock = function(index) {

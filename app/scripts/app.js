@@ -13,20 +13,25 @@ angular
     ])
     .config(function ($routeProvider) {
         $routeProvider
-            .when('/your-portfolio', {
-                templateUrl: 'views/your-portfolio.html',
-                controller: 'YourPortfolioCtrl',
-                activeTab: 'your_portfolio'
+            .when('/stocks-portfolio', {
+                templateUrl: 'views/stocks-portfolio.html',
+                controller: 'StocksPortfolioCtrl',
+                activeTab: 'stocks-portfolio'
             })
-            .when('/markos-portfolio', {
-                templateUrl: 'views/markos-portfolio.html',
-                controller: 'MarkosPortfolioCtrl',
-                activeTab: 'markos_portfolio'
+            .when('/diversified-portfolio', {
+                templateUrl: 'views/diversified-portfolio.html',
+                controller: 'DiversifiedPortfolioCtrl',
+                activeTab: 'diversified-portfolio'
             })
-            .when('/overlay', {
-                templateUrl: 'views/overlay.html',
-                controller: 'OverlayCtrl',
-                activeTab: 'overlay'
+            .when('/comparison', {
+                templateUrl: 'views/comparison.html',
+                controller: 'ComparisonCtrl',
+                activeTab: 'comparison'
+            })
+            .when('/summary', {
+              templateUrl: 'views/summary.html',
+              controller: 'SummaryCtrl',
+              activeTab: 'summary'
             })
             .otherwise({
                 redirectTo: '/'
