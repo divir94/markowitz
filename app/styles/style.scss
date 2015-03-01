@@ -53,6 +53,7 @@ section.main {
 	width: calc(100% - 330px - 1px);
 
 	main {
+		position: relative;
 		background-color: #fff;
 	}
 }
@@ -319,3 +320,353 @@ section.correlation {
 		margin-right: 80px;
 	}
 }
+
+
+
+section.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 494px;
+	background-color: #fff;
+	z-index: 100;
+
+	$size: 12px;
+	$f-size: $size*3;
+	$time: 5s;
+	$color: $text-bold;
+	$color-s: $text-light;
+
+	.loader-obj {
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		width: $f-size;
+		height: $f-size;
+		animation: rotate $time ease-out infinite;
+		border-radius: 10px;
+		overflow: hidden;
+
+		&:before, &:after{
+			position: absolute;
+			content: '';
+			display: block;
+			width: $size;
+			height: $size;
+			left: 0;
+			top: 0;
+		}
+		&:before{
+			background: $color;
+			box-shadow: $size 0 0 $color,
+			$size*2 0 0 $color,
+			0 $size 0 $color,
+			$size $size 0 $color,
+			$size*2 $size 0 $color,
+			0 $size*2 0 $color,
+			$size $size*2 0 $color, 
+			$size*2 $size*2 0 $color;
+			animation: one $time ease infinite;
+		} 
+		&:after{
+			background: $color-s;
+			box-shadow: $size 0 0 $color-s,
+			  			$size*2 0 0 $color-s,
+			  			0 $size 0 $color-s,
+			  			$size $size 0 $color-s,
+			  			$size*2 $size 0 $color-s,
+			  			0 $size*2 0 $color-s,
+			  			$size $size*2 0 $color-s, 
+			  			$size*2 $size*2 0 $color-s;
+
+			animation: two $time ease infinite;
+			z-index: 2;
+		}
+	}
+	h3 {
+		position: absolute;
+		top: calc(50% + 30px);
+		left: calc(50% - 37px);
+		font-family: Oxford;
+		font-size: 17px;
+		color: $text-light;
+	}
+	@keyframes one {
+		0% {
+			background: transparent;
+			box-shadow: $size 0 0 $color,
+			  			$size*2 0 0 $color,
+			  			0 $size 0 $color,
+			  			$size $size 0 $color,
+			  			$size*2 $size 0 $color,
+			  			0 $size*2 0 $color,
+			  			$size $size*2 0 $color, 
+			  			$size*2 $size*2 0 $color;
+			z-index: 1;
+		}
+		5% {
+			background: transparent;
+			box-shadow: $size 0 0 transparent,
+			 			$size*2 0 0 $color,
+			  			0 $size 0 $color,
+			  			$size $size 0 $color,
+			  			$size*2 $size 0 $color,
+			  			0 $size*2 0 $color,
+			  			$size $size*2 0 $color, 
+			  			$size*2 $size*2 0 $color;
+		}
+		10% {
+			background: transparent;
+			box-shadow: $size 0 0 transparent,
+			  			$size*2 0 0 transparent,
+			  			0 $size 0 $color,
+			  			$size $size 0 $color,
+			  			$size*2 $size 0 $color,
+			  			0 $size*2 0 $color,
+			  			$size $size*2 0 $color, 
+			  			$size*2 $size*2 0 $color;
+		}
+	  	15% {
+	    	background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 $color,
+	      				$size*2 $size 0 $color,
+	      				0 $size*2 0 $color,
+	      				$size $size*2 0 $color, 
+	      				$size*2 $size*2 0 $color;
+	  	}
+	  	20% {
+	    	background: transparent;
+    		box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 $color,
+	      				0 $size*2 0 $color,
+	      				$size $size*2 0 $color, 
+	      				$size*2 $size*2 0 $color;
+	  	}
+	  	25% {
+	    	background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 $color,
+	      				$size $size*2 0 $color, 
+	      				$size*2 $size*2 0 $color;
+	  	}
+	  	30% {
+	    	background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 transparent,
+	      				$size $size*2 0 $color, 
+	      				$size*2 $size*2 0 $color;
+	 	}
+	  	35% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 transparent,
+	      				$size $size*2 0 transparent, 
+	      				$size*2 $size*2 0 $color;
+	  	}
+	  	40% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 transparent,
+	      				$size $size*2 0 transparent, 
+	      				$size*2 $size*2 0 transparent;
+	  	}
+	  	45% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 transparent,
+	      				$size $size*2 0 transparent, 
+	      				$size*2 $size*2 0 transparent;
+	    				z-index: 1;
+	 	}
+	  	50% , 100% {
+    		background: $color;
+	    	box-shadow: $size 0 0 $color,
+	      				$size*2 0 0 $color,
+	      				0 $size 0 $color,
+	      				$size $size 0 $color,
+	      				$size*2 $size 0 $color,
+	      				0 $size*2 0 $color,
+	      				$size $size*2 0 $color, 
+	      				$size*2 $size*2 0 $color;
+	    	z-index: 0;	 
+	  	}
+	  	100% {
+    		z-index: 0;
+	  	}
+	}		
+	@keyframes two {
+		0%, 49% {
+	    	background:	 $color-s;
+	    	z-index: 0;
+	  	}
+	  	50% {
+	    	background: transparent;
+	    	box-shadow: $size 0 0 $color-s,
+	      				$size*2 0 0 $color-s,
+	      				0 $size 0 $color-s,
+	      				$size $size 0 $color-s,
+	      				$size*2 $size 0 $color-s,
+	      				0 $size*2 0 $color-s,
+	      				$size $size*2 0 $color-s, 
+	      				$size*2 $size*2 0 $color-s;
+	    	z-index: 1;
+	  	}
+	  	55% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 $color-s,
+	      				0 $size 0 $color-s,
+	      				$size $size 0 $color-s,
+	      				$size*2 $size 0 $color-s,
+	      				0 $size*2 0 $color-s,
+	      				$size $size*2 0 $color-s, 
+	      				$size*2 $size*2 0 $color-s;
+	  	}
+	  	60% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 $color-s,
+	      				$size $size 0 $color-s,
+	      				$size*2 $size 0 $color-s,
+	      				0 $size*2 0 $color-s,
+	      				$size $size*2 0 $color-s, 
+	      				$size*2 $size*2 0 $color-s;
+	  	}
+	  	65% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 $color-s,
+	      				$size*2 $size 0 $color-s,
+	      				0 $size*2 0 $color-s,
+	      				$size $size*2 0 $color-s, 
+	      				$size*2 $size*2 0 $color-s;
+	  	}
+	  	70% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 $color-s,
+	      				0 $size*2 0 $color-s,
+	      				$size $size*2 0 $color-s, 
+	      				$size*2 $size*2 0 $color-s;
+	  	}
+	  	75% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 $color-s,
+	      				$size $size*2 0 $color-s, 
+	      				$size*2 $size*2 0 $color-s;
+	  	}
+	  	80% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 transparent,
+	      				$size $size*2 0 $color-s, 
+	      				$size*2 $size*2 0 $color-s;
+	  	}
+	  	85% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 transparent,
+	      				$size $size*2 0 transparent, 
+	      				$size*2 $size*2 0 $color-s;
+	  	}
+	  	90% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent,
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 transparent,
+	      				$size $size*2 0 transparent, 
+	      				$size*2 $size*2 0 transparent;
+	  	}
+	  	95% {
+    		background: transparent;
+	    	box-shadow: $size 0 0 transparent,
+	      				$size*2 0 0 transparent,
+	      				0 $size 0 transparent, 
+	      				$size $size 0 transparent,
+	      				$size*2 $size 0 transparent,
+	      				0 $size*2 0 transparent,
+	      				$size $size*2 0 transparent, 
+	      				$size*2 $size*2 0 transparent;
+    		z-index: 1	;
+	  	}
+	  	100% {
+    		background: $color-s;
+	    	box-shadow: $size 0 0 $color-s,
+	      				$size*2 0 0 $color-s,
+	      				0 $size 0 $color-s,
+	      				$size $size 0 $color-s,
+	      				$size*2 $size 0 $color-s,
+	      				0 $size*2 0 $color-s,
+	      				$size $size*2 0 $color-s, 
+	      				$size*2 $size*2 0 $color-s;
+	  	}
+	}
+	@keyframes rotate {
+	  	0% {
+	    	transform: translate(-50%, -50%) rotate(0deg)
+	  	}
+	  	25% {
+	    	transform: translate(-50%, -50%) rotate(90deg) 
+	  	}
+	  	50% {
+	    	transform: translate(-50%, -50%) rotate(180deg) 
+	  	}
+	  	75% {
+	    	transform: translate(-50%, -50%) rotate(270deg) 
+	  	}
+	  	100% {
+	    	transform: translate(-50%, -50%) rotate(360deg) 
+	  	}
+	}
+}
+

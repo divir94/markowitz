@@ -20,6 +20,7 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
             .done(function() {
                 seriesCounter += 1;
                 if (seriesCounter == names.length) {
+                    $('section.loader').remove();
                     createChart(seriesOptions);
                 }
             });
