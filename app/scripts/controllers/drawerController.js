@@ -69,11 +69,17 @@ angular.module('markoApp')
   // add and remove strategies
   $scope.addStrategy = function(item) {
     var index = $rootScope.strategies.indexOf(item);
-    if (index == -1) $rootScope.strategies.push(item);
+    if (index == -1) {
+        $rootScope.strategies.push(item);
+        $rootScope.$emit('strategyAdd', item);
+    }
   }
 
   $scope.removeStrategy = function(item) {
     var index = $rootScope.strategies.indexOf(item);
-    if (index > -1) $rootScope.strategies.splice(index, 1);
+    if (index > -1) {
+        $rootScope.strategies.splice(index, 1);
+        $rootScope.$emit('strategyRemove', index);
+    }
   }
 }])

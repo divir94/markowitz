@@ -62,6 +62,7 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
             console.log('Error occurred, data given was ' + data);
         });
 
+    // event listeners
     // add stock
     $rootScope.$on('stockAdd', function(event, data) {
       $('section.loader').show();
