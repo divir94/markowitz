@@ -8,15 +8,15 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
     $scope.selected = undefined;
 
     $http.get('data/stock-names.json')
-    .success(function(data, status, headers, config) {
-      var tickerArr = [];
-      for (var ticker in data) tickerArr.push(ticker);
-          $scope.tickerDict = data;
-      $scope.tickers = tickerArr;
-  })
-    .error(function(data, status, headers, config) {
-      console.log('Error occurred, data given was ' + data);
-  });
+        .success(function(data, status, headers, config) {
+            var tickerArr = [];
+            for (var ticker in data) tickerArr.push(ticker);
+            $scope.tickerDict = data;
+            $scope.tickers = tickerArr;
+        })
+        .error(function(data, status, headers, config) {
+            console.log('Error occurred, data given was ' + data);
+        });
 
     $scope.addTicker = function(item) {
         console.log(item);

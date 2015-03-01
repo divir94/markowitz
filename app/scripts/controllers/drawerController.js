@@ -9,38 +9,64 @@ var setDrawerHeight = function() {
         $('section.drawer').height(drawerH);
         $('ul.stock-list').height(stockListH);
     }, 100);
-}
+};
 
-
-angular.module('markoApp').controller('DrawerCtrl', function ($scope, $http, $rootScope) {
+angular.module('markoApp')
+  .controller('DrawerCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
   setDrawerHeight();
-  console.log('Hello');
 
-  var apikey = 'J7hxBtcABx8AsszfDzq-';
-  $scope.tickers = [];
-  $scope.selectedTickers = [];
-  $scope.tickerDict;
-  $scope.selected = undefined;
+  // all avilable stocks and strategies
+  $scope.allStocks = [];
+  $scope.allStocksDict;
+  $scope.allStrategies = [];
+  $scope.allStrategiesDict;
 
+  // user selections
+  $rootScope.stocks = [];
+  $rootScope.strategies = [];
+
+  // get stock tickers and description
   $http.get('data/stock-names.json')
-      .success(function(data, status, headers, config) {
-          var tickerArr = [];
-          for (var ticker in data) tickerArr.push(ticker);
-          $scope.tickerDict = data;
-          $scope.tickers = tickerArr;
-      })
-      .error(function(data, status, headers, config) {
-          console.log('Error occurred, data given was ' + data);
-      });
+    .success(function(data, status, headers, config) {
+      var tickerArr = [];
+      for (var ticker in data) tickerArr.push(ticker);
+      $scope.allStocksDict = data;
+      $scope.allStocks = tickerArr;
+    })
+    .error(function(data, status, headers, config) {
+      console.log('Error occurred, data given was ' + data);
+    });
 
-  $scope.addTicker = function(item) {
+  // get strategy tickers and description
+  $http.get('data/strategy-names.json')
+    .success(function(data, status, headers, config) {
+      var strategyArr = [];
+      for (var name in data) strategyArr.push(name);
+      $scope.allStrategiesDict = data;
+      $scope.allStrategies = strategyArr;
+    })
+    .error(function(data, status, headers, config) {
+      console.log('Error occurred, data given was ' + data);
+    });
+
+  // add and remove stocks
+  $scope.addStock = function(item) {
+    $rootScope.stocks.push(item);
+  }
+
+  $scope.removeStock = function(item) {
+    var index = $rootScope.stocks.indexOf(item);
+    if (index > -1) $rootScope.stocks.splice(index, 1);
+  }
+
+  // add and remove strategies
+  $scope.addStrategy = function(item) {
     console.log(item);
-    $rootScope.newTicker = item;
-    $scope.selectedTickers.push(item);
-    
+    $rootScope.strategies.push(item);
   }
 
-  $scope.deleteStock = function(index) {
-    $rootScope.removeTicker = index;
+  $scope.removeStrategy = function(item) {
+    var index = $rootScope.strategies.indexOf(item);
+    if (index > -1) $rootScope.strategies.splice(index, 1);
   }
-})
+}])
