@@ -18,7 +18,8 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
     }
 
     var addLine = function(item) {
-        $http.get('https://sleepy-cove-7513.herokuapp.com/quandl', {
+      // https://sleepy-cove-7513.herokuapp.com/quandl
+        $http.get('http://localhost:5000/quandl', {
           params: {
             stock: item
         }})

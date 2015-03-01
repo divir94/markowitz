@@ -14,7 +14,8 @@ angular.module('markoApp').controller('DiversifiedPortfolioCtrl', function ($roo
     }
 
     var addLine = function(item) {
-        $http.get('https://sleepy-cove-7513.herokuapp.com/french', {
+      // https://sleepy-cove-7513.herokuapp.com/french
+        $http.get('http://localhost:5000/french', {
           params: {
             factor: item
         }})
@@ -30,7 +31,7 @@ angular.module('markoApp').controller('DiversifiedPortfolioCtrl', function ($roo
                   color: colors[$rootScope.strategies.length],
                   dataLabels: name,
                   data: stock.map(function(obj) {
-                    return [obj[0], obj[1]];
+                    return [Date.parse(obj[0]), obj[1]];
                 })
                 };
               seriesOptions.push(temp);
