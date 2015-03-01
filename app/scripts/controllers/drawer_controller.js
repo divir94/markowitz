@@ -12,14 +12,15 @@ var setDrawerHeight = function() {
 }
 
 
-angular.module('markoApp').controller('DrawerCtrl', function ($scope, $http) {
-    setDrawerHeight();
+angular.module('markoApp').controller('DrawerCtrl', function ($scope, $http, $rootScope) {
+  setDrawerHeight();
 
-    var apikey = 'J7hxBtcABx8AsszfDzq-';
-    $scope.tickers = [];
-    $scope.tickerDict;
-    $scope.selected = undefined;
-    $scope.selectedTickers = []
+  var apikey = 'J7hxBtcABx8AsszfDzq-';
+  $scope.tickers = [];
+  $scope.tickerDict;
+  $scope.selected = undefined;
+  $rootScope.selectedTickers = [];
+
 
     $http.get('data/stock-names.json')
         .success(function(data, status, headers, config) {
@@ -32,12 +33,12 @@ angular.module('markoApp').controller('DrawerCtrl', function ($scope, $http) {
             console.log('Error occurred, data given was ' + data);
         });
 
-    $scope.addTicker = function(item) {
-        if ($scope.selectedTickers.indexOf(item) === -1) $scope.selectedTickers.push(item);
-        console.log($scope.selectedTickers);
-    }
+  $scope.addTicker = function(item) {
+    if ($rootScope.selectedTickers.indexOf(item) === -1) $rootScope.selectedTickers.push(item);
+    console.log($scope.selectedTickers);
+  }
 
-    $scope.deleteStock = function(index) {
-        $scope.selectedTickers.splice(index, 1);
-    }
+  $scope.deleteStock = function(index) {
+    $rootScope.selectedTickers.splice(index, 1);
+  }
 })
