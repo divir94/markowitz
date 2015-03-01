@@ -29,7 +29,7 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
                 };
               seriesOptions.push(temp);
               $('section.loader').hide();
-              createChart(seriesOptions);
+              createChart(seriesOptions,3);
           })
         .error(function(data, status, headers, config) {
             console.log('Error from addLine');

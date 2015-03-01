@@ -6,8 +6,8 @@ var setHeights = function() {
     $('main').height(Math.ceil(windowH - headerH - footerH - navH - 10));
 };
 
-var createChart = function(seriesOptions) {
-  $('.line-chart').highcharts('StockChart', {
+var createChart = function(seriesOptions, tab) {
+  var chart = $('.line-chart').highcharts('StockChart', {
     rangeSelector: {
       selected: 4
     },
@@ -35,7 +35,16 @@ var createChart = function(seriesOptions) {
     },
     plotOptions: {
       series: {
-        compare: 'percent'
+        compare: 'percent',
+        point: {
+          events: {
+            mouseOver: function (event) {
+              if (tab == 1) $('#stock-change').html(Math.round(event.target.change)+'%');
+              else if (tab == 2)  $('#diversified-change').html(Math.round(event.target.change)+'%');
+              else  $('#comparison-change').html(Math.round(event.target.change)+'%');
+            }
+          }
+        }
       }
     },
     tooltip: {
@@ -44,6 +53,7 @@ var createChart = function(seriesOptions) {
     },
     series: seriesOptions
   });
+  return chart
 };
 
 

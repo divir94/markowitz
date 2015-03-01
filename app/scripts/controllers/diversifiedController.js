@@ -4,6 +4,7 @@ angular.module('markoApp').controller('DiversifiedPortfolioCtrl', function ($roo
 
     var seriesOptions = [],
         seriesCounter = 0;
+    $rootScope.change = 0;
 
     angular.element(document).ready(function () {
         var names = ['AAPL', 'GOOGL'];
@@ -21,7 +22,7 @@ angular.module('markoApp').controller('DiversifiedPortfolioCtrl', function ($roo
                 seriesCounter += 1;
                 if (seriesCounter == names.length) {
                     $('section.loader').remove();
-                    createChart(seriesOptions);
+                    createChart(seriesOptions,2);
                 }
             });
         });

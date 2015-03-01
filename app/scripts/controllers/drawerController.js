@@ -16,9 +16,9 @@ angular.module('markoApp')
   setDrawerHeight();
 
   // all avilable stocks and strategies
-  $scope.allStocks = [];
+  $rootScope.allStocks = [];
   $scope.allStocksDict;
-  $scope.allStrategies = [];
+  $rootScope.allStrategies = [];
   $scope.allStrategiesDict;
 
   // user selections
