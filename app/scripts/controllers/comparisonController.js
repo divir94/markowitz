@@ -11,28 +11,28 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
     var addLine = function(item) {
         $http.get('https://sleepy-cove-7513.herokuapp.com/quandl', {
           params: {
-            stocks: item
+            stock: item
         }})
         .success(function(data, status, headers, config) {
-            console.log(data);
                 // do nothing if empty array returned
                 if (data.length === 0) {
                     return;
                 }
+                console.log(typeof data === 'object');
                 console.log('displaying');
-                var stock = data[0];
                 var temp = {
-                  name: item,
-                  color: colors[4],
-                  dataLabels: name,
-                  data: stock.map(function(obj) {
-                    return [Date.parse(obj[0]), obj[1]];
-                })
+                    name: item,
+                    color: colors[4],
+                    dataLabels: name,
+                    data: data.map(function(obj) {
+                        return [Date.parse(obj[0]), parseInt(obj[1])];
+                    })
                 };
+                console.log('add to so');
               seriesOptions.push(temp);
               $('section.loader').hide();
               createChart(seriesOptions);
-          })
+        })
         .error(function(data, status, headers, config) {
             console.log('Error from addLine');
         })
