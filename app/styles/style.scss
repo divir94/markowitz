@@ -85,9 +85,10 @@ section.drawer {
 			color: $text-bold;
 		}
 		div.selected-portfolio, div.selected-method {
-			width: calc(50% - 20px);
 			position: relative;
 			display: inline-block;
+			width: calc(50% - 20px);
+			vertical-align: top;
 
 			input {
 				padding: 5px 5px;
@@ -120,7 +121,7 @@ section.drawer {
 				}
 			}
 			ul.stock-list {
-				width: 100%;
+				width: calc(100% - 9px);
 				list-style: none;
 				overflow: hidden;
 				overflow-y: scroll;
