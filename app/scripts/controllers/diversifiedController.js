@@ -61,6 +61,9 @@ angular.module('markoApp').controller('DiversifiedPortfolioCtrl', function ($roo
 
     // remove strategy
     $rootScope.$on('strategyRemove', function(event, index) {
+        if ($rootScope.strategies.length == 0) {
+            $('section.nothing-to-load').show();
+        }
         seriesOptions.splice(index, 1);
         createChart(seriesOptions);
     });

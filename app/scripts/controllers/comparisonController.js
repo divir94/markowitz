@@ -35,10 +35,6 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
         })
     };
 
-    var removeLine = function(index) {
-
-    };
-
     // watch for change on newTicker
     $rootScope.$watch('newTicker', function() {
         $('section.loader').show();
@@ -46,33 +42,32 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
     });
 
     //https://sleepy-cove-7513.herokuapp.com/portfolio'
-    $http.get('http://localhost:5000/strategy', {
-        params: {
-            strategies: $rootScope.strategies
-        }
-    })
-    .success(function(data, status, headers, config) {
-        // do nothing if empty array returned
-        console.log(data);
-        if (data.length === 0) {
-            return;
-        }
-        var temp = {
-            name: 'Strategies',
-            color: colors[1],
-            dataLabels: name,
-            data: data.map(function(obj) {
-                return [Date.parse(obj[0]), parseInt(obj[1])];
-            })
-        };
-        console.log('add to so');
-        seriesOptions.push(temp);
-        $('section.loader').hide();
-        createChart(seriesOptions);
-    })
-    .error(function(data, status, headers, config) {
-        console.log('Error from addLine');
-    });
+    $http.get('https://sleepy-cove-7513.herokuapp.com/strategy', {
+      params: {
+        strategies: $rootScope.strategies
+    }})
+      .success(function(data, status, headers, config) {
+              // do nothing if empty array returned
+              console.log(data);
+              if (data.length === 0) {
+                  return;
+              }
+              var temp = {
+                  name: 'Strategies',
+                  color: colors[1],
+                  dataLabels: name,
+                  data: data.map(function(obj) {
+                      return [Date.parse(obj[0]), parseInt(obj[1])];
+                  })
+              };
+              console.log('add to so');
+            seriesOptions.push(temp);
+            $('section.loader').hide();
+            createChart(seriesOptions);
+      })
+      .error(function(data, status, headers, config) {
+          console.log('Error from addLine');
+      });
 
 
     // $http.get('http://localhost:5000/compute/strategy', {

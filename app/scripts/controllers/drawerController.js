@@ -7,7 +7,7 @@ var setDrawerHeight = function() {
         var drawerH = Math.floor(windowH - headerH - footerH);
         var stockListH = drawerH - 420;
         $('section.drawer').height(drawerH);
-        $('ul.stock-list').height(stockListH);
+        $('ul.stock-list').css('max-height', stockListH);
     }, 100);
 };
 

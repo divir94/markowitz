@@ -85,9 +85,10 @@ section.drawer {
 			color: $text-bold;
 		}
 		div.selected-portfolio, div.selected-method {
-			width: calc(50% - 20px);
 			position: relative;
 			display: inline-block;
+			width: calc(50% - 20px);
+			vertical-align: top;
 
 			input {
 				padding: 5px 5px;
@@ -145,7 +146,7 @@ section.drawer {
 						border-right: 1px solid #b6ccda;
 					}
 					div.stock-section:first-child {
-						width: 81px;
+						width: 66px;
 						overflow: hidden;
 						white-space: nowrap;
 						text-overflow: ellipsis;
@@ -190,6 +191,14 @@ section.drawer {
 						}
 					}
 				}
+			}
+			ul.stock-list::-webkit-scrollbar {
+				width: 10px;
+				background-color: lighten($text-light, 15%);
+			}
+			ul.stock-list::-webkit-scrollbar-thumb {
+				background-color: lighten($text-light, 10%);
+				-webkit-border-radius: 0;
 			}
 		}
 		div.stock-correlation {

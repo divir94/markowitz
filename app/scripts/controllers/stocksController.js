@@ -76,6 +76,9 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
 
     // remove stock
     $rootScope.$on('stockRemove', function(event, index) {
+        if ($rootScope.stocks.length == 0) {
+            $('section.nothing-to-load').show();
+        }
         seriesOptions.splice(index, 1);
         createChart(seriesOptions);
     });
