@@ -70,6 +70,7 @@ section.main {
 
 
 section.drawer {
+	position: relative;
 	float: right;
 	width: 420px;
 	background-color: $bg-light;
@@ -207,6 +208,32 @@ section.drawer {
 			margin-top: 60px;
 		}
 	}
+
+	div.drawer-toggle {
+		position: absolute;
+		top: 38%;
+		left: -1px;
+
+		i {
+			padding: 5px;
+			color: $bg-light;
+			background-color: $bg-accent;
+			border-radius: 0 2px 2px 0;
+			box-shadow: 1px 1px 0 #bbb;
+			cursor: pointer;
+		}
+		i:hover {
+			opacity: 0.85;
+		}
+	}
+}
+section.drawer.closed {
+	width: 30px;
+	overflow: hidden;
+
+	div.drawer-contents {
+		display: none;
+	}
 }
 
 
@@ -256,6 +283,7 @@ nav.tabs {
 			position: relative;
 			display: inline-block;
 			margin-right: -5px;
+			width: 170px;
 			cursor: pointer;
 			background-color: $text-bold;
 			outline: none;

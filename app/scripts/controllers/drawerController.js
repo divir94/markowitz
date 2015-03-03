@@ -82,4 +82,8 @@ angular.module('markoApp')
         $rootScope.$emit('strategyRemove', index);
     }
   }
+
+  $scope.toggleDrawer = function() {
+    $('section.drawer').toggleClass('closed');
+  }
 }])
