@@ -77,6 +77,7 @@ section.drawer {
 	border-left: 1px solid $bg-border;
 
 	div.drawer-contents {
+		display: block;
 		width: calc(100% - 20px);
 		padding: 10px;
 
@@ -219,7 +220,6 @@ section.drawer {
 			color: $bg-light;
 			background-color: $bg-accent;
 			border-radius: 0 2px 2px 0;
-			box-shadow: 1px 1px 0 #bbb;
 			cursor: pointer;
 		}
 		i:hover {
@@ -230,6 +230,12 @@ section.drawer {
 section.drawer.closed {
 	width: 30px;
 	overflow: hidden;
+
+	div.drawer-contents {
+		display: none;
+	}
+}
+section.drawer.in-motion {
 
 	div.drawer-contents {
 		display: none;

@@ -12,78 +12,110 @@ var setDrawerHeight = function() {
 };
 
 angular.module('markoApp')
-  .controller('DrawerCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
-  setDrawerHeight();
+    .controller('DrawerCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
+    setDrawerHeight();
 
-  // all avilable stocks and strategies
-  $rootScope.allStocks = [];
-  $scope.allStocksDict;
-  $rootScope.allStrategies = [];
-  $scope.allStrategiesDict;
+    // all avilable stocks and strategies
+    $rootScope.allStocks = [];
+    $scope.allStocksDict;
+    $rootScope.allStrategies = [];
+    $scope.allStrategiesDict;
 
-  // user selections
-  $rootScope.stocks = [];
-  $rootScope.strategies = [];
+    // user selections
+    $rootScope.stocks = [];
+    $rootScope.strategies = [];
 
-  // get stock tickers and description
-  $http.get('data/stock-names.json')
-    .success(function(data, status, headers, config) {
-      var tickerArr = [];
-      for (var ticker in data) tickerArr.push(ticker);
-      $scope.allStocksDict = data;
-      $scope.allStocks = tickerArr;
-    })
-    .error(function(data, status, headers, config) {
-      console.log('Error occurred, data given was ' + data);
-    });
+    // get stock tickers and description
+    $http.get('data/stock-names.json')
+        .success(function(data, status, headers, config) {
+            var tickerArr = [];
+            for (var ticker in data) tickerArr.push(ticker);
+            $scope.allStocksDict = data;
+            $scope.allStocks = tickerArr;
+        })
+        .error(function(data, status, headers, config) {
+            console.log('Error occurred, data given was ' + data);
+        });
 
-  // get strategy tickers and description
-  $http.get('data/strategy-names.json')
-    .success(function(data, status, headers, config) {
-      var strategyArr = [];
-      for (var name in data) strategyArr.push(name);
-      $scope.allStrategiesDict = data;
-      $scope.allStrategies = strategyArr;
-    })
-    .error(function(data, status, headers, config) {
-      console.log('Error occurred, data given was ' + data);
-    });
+    // get strategy tickers and description
+    $http.get('data/strategy-names.json')
+        .success(function(data, status, headers, config) {
+            var strategyArr = [];
+            for (var name in data) strategyArr.push(name);
+            $scope.allStrategiesDict = data;
+            $scope.allStrategies = strategyArr;
+        })
+        .error(function(data, status, headers, config) {
+            console.log('Error occurred, data given was ' + data);
+        });
 
-  // add and remove stocks
-  $scope.addStock = function(item) {
-    var index = $rootScope.stocks.indexOf(item);
-    if (index == -1) {
-      $rootScope.stocks.push(item);
-      $rootScope.$emit('stockAdd', item);
+    // add and remove stocks
+    $scope.addStock = function(item) {
+        var index = $rootScope.stocks.indexOf(item);
+        if (index == -1) {
+            $rootScope.stocks.push(item);
+            $rootScope.$emit('stockAdd', item);
+        }
     }
-  }
 
-  $scope.removeStock = function(item) {
-    var index = $rootScope.stocks.indexOf(item);
-    if (index > -1) {
-      $rootScope.stocks.splice(index, 1);
-      $rootScope.$emit('stockRemove', index);
+    $scope.removeStock = function(item) {
+        var index = $rootScope.stocks.indexOf(item);
+        if (index > -1) {
+            $rootScope.stocks.splice(index, 1);
+            $rootScope.$emit('stockRemove', index);
+        }
     }
-  }
 
-  // add and remove strategies
-  $scope.addStrategy = function(item) {
-    var index = $rootScope.strategies.indexOf(item);
-    if (index == -1) {
-        $rootScope.strategies.push(item);
-        $rootScope.$emit('strategyAdd', item);
+    // add and remove strategies
+    $scope.addStrategy = function(item) {
+        var index = $rootScope.strategies.indexOf(item);
+        if (index == -1) {
+            $rootScope.strategies.push(item);
+            $rootScope.$emit('strategyAdd', item);
+        }
     }
-  }
 
-  $scope.removeStrategy = function(item) {
-    var index = $rootScope.strategies.indexOf(item);
-    if (index > -1) {
-        $rootScope.strategies.splice(index, 1);
-        $rootScope.$emit('strategyRemove', index);
+    $scope.removeStrategy = function(item) {
+        var index = $rootScope.strategies.indexOf(item);
+        if (index > -1) {
+            $rootScope.strategies.splice(index, 1);
+            $rootScope.$emit('strategyRemove', index);
+        }
     }
-  }
 
-  $scope.toggleDrawer = function() {
-    $('section.drawer').toggleClass('closed');
-  }
+    // Toggle the drawer open and closed
+    $scope.toggleDrawer = function() {
+        $('section.drawer').addClass('in-motion');
+
+        var diDrawer = $('section.drawer').width();
+        var diMain   = $('section.main').width();
+        
+        var closed = $('section.drawer').hasClass('closed');
+
+        if (closed) {
+            var dfDrawer = 420;
+            var removeButtonClass = 'fa-angle-left';
+            var addButtonClass = 'fa-angle-right';
+        }
+        else {
+            var dfDrawer = 30;
+            var removeButtonClass = 'fa-angle-right';
+            var addButtonClass = 'fa-angle-left';
+        }
+        $('div.drawer-toggle i').removeClass(removeButtonClass);
+        $('div.drawer-toggle i').addClass(addButtonClass);
+        
+        var dfMain = diMain + diDrawer - dfDrawer;
+        $('section.drawer').animate({
+            width: dfDrawer
+        }, {duration: 400, queue: false});
+        $('section.main').animate({
+            width: dfMain
+        }, {duration: 400, queue: false});
+        
+        setTimeout(function() {
+            $('section.drawer').removeClass('in-motion');
+            $('section.drawer').toggleClass('closed');
+        }, 400);
+    }
 }])
