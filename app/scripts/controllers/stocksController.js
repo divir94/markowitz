@@ -1,12 +1,7 @@
-angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScope, $scope, $route, $http) {
+angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScope, $scope, $route, $http, stocksFactory) {
     $rootScope.activeTab = $route.current.activeTab;
     setHeights();
 
-
-
-    // var apikey = 'J7hxBtcABx8AsszfDzq-';
-    // $scope.tickers = [];
-    // $scope.tickerDict;
     $scope.selected = undefined;
     var seriesOptions = [];
     var colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'];
@@ -66,12 +61,30 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
 
     // event listeners
     // add stock
-    $rootScope.$on('stockAdd', function(event, data) {
+    $rootScope.$on('stockAdd', function(event, item) {
         if ($rootScope.stocks.length == 1) {
             $('section.nothing-to-load').hide();
         }
         $('section.loader').show();
-        addLine(data);
+        // addLine(item);
+
+        stocksFactory.add(item).success(function(data) {
+            if (data !== null) {
+                console.log(data);
+                seriesOptions.push(data);
+                $('section.loader').hide();
+                createChart(seriesOptions, 1);
+            }
+        }).error(function(data) {
+            console.log('Error occurred when using stocksFactory');
+        });
+        // if (nextStock !== null) {
+        //     console.log(nextStock);
+        //     seriesOptions.push(nextStock);
+        //     $('section.loader').hide();
+        //     createChart(seriesOptions, 1);
+        // }
+        // stocksFactory.addStock(data);
     });
 
     // remove stock
@@ -82,14 +95,5 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
         seriesOptions.splice(index, 1);
         createChart(seriesOptions);
     });
-
-    $scope.addTicker = function(item) {
-        console.log(item);
-        $rootScope.newTicker = item;
-    }
-
-    $scope.deleteStock = function(index) {
-        $rootScope.removeTicker = index;
-    }
 
 });
