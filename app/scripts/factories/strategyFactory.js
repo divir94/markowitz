@@ -2,13 +2,13 @@
 // Used in DiversifiedPortfolioCtrl
 
 var colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'];
-var usedColors = [];
+var usedIndices = [];
 
 angular.module('markoApp').factory('strategyFactory', ['$http', 'numberGenerator', 
 	function($http, numberGenerator) {
 		var addStrategy = function(item) {
 
-			var promise = $http.get('https://sleepy-cove-7513.herokuapp.com/french', {
+			var promise = $http.get('https://sleepy-cove-7513.herokuapp.com/graph/strategy', {
 	            params: {
 	                factor: item
 	            }
@@ -18,9 +18,11 @@ angular.module('markoApp').factory('strategyFactory', ['$http', 'numberGenerator
 	        		return null;
 	        	}
 	        	var strategy = response.data;
+	        	var colorIndex = numberGenerator.randNum(0, colors.length, usedIndices);
+	        	usedIndices.push(colorIndex);
 	        	var temp = {
 	        		name: item,
-	        		color: colors[numberGenerator.randNum(0, colors.length, usedColors)],
+	        		color: colors[colorIndex],
 	        		dataLabels: name,
 	        		data: strategy.map(function(obj) {
 	        			return [Date.parse(obj[0]), obj[1]];
@@ -33,9 +35,10 @@ angular.module('markoApp').factory('strategyFactory', ['$http', 'numberGenerator
 		};
 
 		var removeStrategy = function(series, i) {
-			var color = series[i].color;
-			var index = usedColors.indexOf(color);
-			usedColors.splice(index, 1);
+			var color = series[i].color,
+				colorIndex = usedIndices.indexOf(color),
+				index = usedIndices.indexOf(colorIndex);
+			usedIndices.splice(index, 1);
 			series.splice(i, 1);
 		};
 
