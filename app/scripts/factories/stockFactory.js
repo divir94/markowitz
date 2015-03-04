@@ -43,9 +43,8 @@ angular.module('markoApp').factory('stockFactory', ['$http',
 					return response.data;
 				}
 			});
-
 			return promise;
-		}
+		};
 
 		// return functions through a closure
 		return {

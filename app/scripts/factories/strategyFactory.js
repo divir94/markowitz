@@ -42,6 +42,17 @@ angular.module('markoApp').factory('strategyFactory', ['$http', 'numberGenerator
 			series.splice(i, 1);
 		};
 
+		var getListOfStrategies = function() {
+			var promise = $http.get('data/strategy-names.json').then(function(res) {
+				if (res === null || res.data === null) {
+					return null;
+				} else {
+					return res.data;
+				}
+			});
+			return promise;
+		};
+
 		// return functions using closures
 		return {
 			add: function(i) {
@@ -49,6 +60,9 @@ angular.module('markoApp').factory('strategyFactory', ['$http', 'numberGenerator
 			},
 			remove: function(series, index) {
 				return removeStrategy(series, index);
+			},
+			list: function() {
+				return getListOfStrategies();
 			}
 		};
 	}

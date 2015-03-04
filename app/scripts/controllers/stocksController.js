@@ -27,14 +27,14 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
         drawExistingLines();
     }
 
-    stockFactory.list().then(function(data) {
-        var tickerArr = [];
-        for (var t in data) {
-            tickerArr.push(t);
-        }
-        $scope.tickerDict = data;
-        $scope.tickers = tickerArr;
-    });
+    // stockFactory.list().then(function(data) {
+    //     var tickerArr = [];
+    //     for (var t in data) {
+    //         tickerArr.push(t);
+    //     }
+    //     $scope.tickerDict = data;
+    //     $scope.tickers = tickerArr;
+    // });
 
     // event listeners
     // add stock
