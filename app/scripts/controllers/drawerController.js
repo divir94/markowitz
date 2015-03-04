@@ -12,8 +12,9 @@ var setDrawerHeight = function() {
 };
 
 angular.module('markoApp')
-    .controller('DrawerCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
-    setDrawerHeight();
+  .controller('DrawerCtrl', ['$scope', '$rootScope', '$http', 'stockFactory', 'strategyFactory',
+    function ($scope, $rootScope, $http, stockFactory, strategyFactory) {
+  setDrawerHeight();
 
     // all avilable stocks and strategies
     $rootScope.allStocks = [];
@@ -25,29 +26,25 @@ angular.module('markoApp')
     $rootScope.stocks = [];
     $rootScope.strategies = [];
 
-    // get stock tickers and description
-    $http.get('data/stock-names.json')
-        .success(function(data, status, headers, config) {
-            var tickerArr = [];
-            for (var ticker in data) tickerArr.push(ticker);
-            $scope.allStocksDict = data;
-            $scope.allStocks = tickerArr;
-        })
-        .error(function(data, status, headers, config) {
-            console.log('Error occurred, data given was ' + data);
-        });
+  // get stock tickers and descriptions
+  stockFactory.list().then(function(data) {
+      var tickerArr = [];
+      for (var t in data) {
+          tickerArr.push(t);
+      }
+      $scope.allStocksDict = data;
+      $scope.allStocks = tickerArr;
+  });
 
-    // get strategy tickers and description
-    $http.get('data/strategy-names.json')
-        .success(function(data, status, headers, config) {
-            var strategyArr = [];
-            for (var name in data) strategyArr.push(name);
-            $scope.allStrategiesDict = data;
-            $scope.allStrategies = strategyArr;
-        })
-        .error(function(data, status, headers, config) {
-            console.log('Error occurred, data given was ' + data);
-        });
+  // get strategy list and descriptions
+  strategyFactory.list().then(function(data) {
+    var strategyArr = [];
+    for (var s in data) {
+      strategyArr.push(s)
+    }
+    $scope.allStrategiesDict = data;
+    $scope.allStrategies = strategyArr;
+  });
 
     // add and remove stocks
     $scope.addStock = function(item) {
@@ -118,4 +115,4 @@ angular.module('markoApp')
             $('section.drawer').toggleClass('closed');
         }, 400);
     }
-}])
+}]);
