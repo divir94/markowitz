@@ -7,7 +7,7 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
     var seriesOptions = [];
 
     var addLine = function(item) {
-        $http.get('https://sleepy-cove-7513.herokuapp.com/quandl', {
+        $http.get('https://sleepy-cove-7513.herokuapp.com/graph/stock', {
             params: {
                 stocks: item
         }})
@@ -41,7 +41,7 @@ angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $s
     });
 
     //https://sleepy-cove-7513.herokuapp.com/portfolio'
-    $http.get('https://sleepy-cove-7513.herokuapp.com/strategy', {
+    $http.get('https://sleepy-cove-7513.herokuapp.com/portfolio/strategy', {
       params: {
         strategies: $rootScope.strategies
     }})
