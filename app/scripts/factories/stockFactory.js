@@ -10,11 +10,11 @@ angular.module('markoApp').factory('stocksFactory', ['$http',
 					stock: item
 				}
 			})
-			.success(function(data, status, headers, config) {
-				if (data.length === 0 || data === null) {
-					ans = null;
+			.then(function(response) {
+				if (response === null || response.data.length === 0) {
+					return null;
 				}
-				var stock = data;
+				var stock = response.data;
 				var temp = {
 					name: item,
 					color: colors[3],
@@ -24,20 +24,23 @@ angular.module('markoApp').factory('stocksFactory', ['$http',
 					})
 				};
 				return temp;
-				// $('section.loader').hide();
-				// createChart([temp], 1);
-			})
-			.error(function(data, status, headers, config) {
-				console.log('Error from addStock in stocksFactory');
-				return null;
 			});
+
 			return promise;
-		}
+		};
+
+		var removeStock = function(series, index) {
+			series.splice(index, 1);
+			createChart(series, 1);
+		};
 
 		// return functions through a closure
 		return {
 			add: function(i) {
 				return addStock(i);
+			},
+			remove: function(series, i) {
+				return removeStock(series, i);
 			}
 		};
 }]);
