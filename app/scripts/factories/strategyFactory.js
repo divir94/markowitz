@@ -2,9 +2,10 @@
 // Used in DiversifiedPortfolioCtrl
 
 var colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'];
+var usedColors = [];
 
-angular.module('markoApp').factory('strategyFactory', ['$http', '$q', 
-	function($http, $q) {
+angular.module('markoApp').factory('strategyFactory', ['$http', 'numberGenerator', 
+	function($http, numberGenerator) {
 		var addStrategy = function(item) {
 
 			var promise = $http.get('https://sleepy-cove-7513.herokuapp.com/french', {
@@ -19,7 +20,7 @@ angular.module('markoApp').factory('strategyFactory', ['$http', '$q',
 	        	var strategy = response.data;
 	        	var temp = {
 	        		name: item,
-	        		color: colors[5],
+	        		color: colors[numberGenerator.randNum(0, colors.length, usedColors)],
 	        		dataLabels: name,
 	        		data: strategy.map(function(obj) {
 	        			return [Date.parse(obj[0]), obj[1]];
@@ -31,8 +32,11 @@ angular.module('markoApp').factory('strategyFactory', ['$http', '$q',
 	        return promise;
 		};
 
-		var removeStrategy = function(series, index) {
-			series.splice(index, 1);
+		var removeStrategy = function(series, i) {
+			var color = series[i].color;
+			var index = usedColors.indexOf(color);
+			usedColors.splice(index, 1);
+			series.splice(i, 1);
 		};
 
 		// return functions using closures

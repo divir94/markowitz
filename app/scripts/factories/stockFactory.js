@@ -2,9 +2,10 @@
 // used in StocksPortfolioCtrl
 
 var colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'];
+var usedColors = [];
 
-angular.module('markoApp').factory('stockFactory', ['$http',
-	function($http) {
+angular.module('markoApp').factory('stockFactory', ['$http', 'numberGenerator',
+	function($http, numberGenerator) {
 		var addStock = function(item) {
 			var promise = $http.get('https://sleepy-cove-7513.herokuapp.com/quandl', {
 				params: {
@@ -18,10 +19,10 @@ angular.module('markoApp').factory('stockFactory', ['$http',
 				var stock = response.data;
 				var temp = {
 					name: item,
-					color: colors[3],
+					color: colors[numberGenerator.randNum(0, colors.length, usedColors)],
 					dataLabels: name,
-					data: stock.map(function(o) {
-						return [Date.parse(o[0]), o[1]];
+					data: stock.map(function(obj) {
+						return [Date.parse(obj[0]), obj[1]];
 					})
 				};
 				return temp;
@@ -30,8 +31,11 @@ angular.module('markoApp').factory('stockFactory', ['$http',
 			return promise;
 		};
 
-		var removeStock = function(series, index) {
-			series.splice(index, 1);
+		var removeStock = function(series, i) {
+			var color = series[i].color;
+			var index = usedColors.indexOf(color);
+			usedColors.splice(index, 1);
+			series.splice(i, 1);
 		};
 
 		// return functions through a closure
