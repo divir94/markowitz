@@ -1,8 +1,9 @@
 // writing a service to encapsulate funcionality that has to do with interacting with a stock
+// used in StocksPortfolioCtrl
 
 var colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'];
 
-angular.module('markoApp').factory('stocksFactory', ['$http',
+angular.module('markoApp').factory('stockFactory', ['$http',
 	function($http) {
 		var addStock = function(item) {
 			var promise = $http.get('https://sleepy-cove-7513.herokuapp.com/quandl', {
@@ -31,7 +32,6 @@ angular.module('markoApp').factory('stocksFactory', ['$http',
 
 		var removeStock = function(series, index) {
 			series.splice(index, 1);
-			createChart(series, 1);
 		};
 
 		// return functions through a closure
@@ -43,4 +43,5 @@ angular.module('markoApp').factory('stocksFactory', ['$http',
 				return removeStock(series, i);
 			}
 		};
-}]);
+	}
+]);
