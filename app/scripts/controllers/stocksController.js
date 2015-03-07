@@ -1,3 +1,5 @@
+var indexOfPortfolio = 1;
+
 angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScope, $scope, $route, $http, stockFactory) {
     $rootScope.activeTab = $route.current.activeTab;
     setHeights();
@@ -27,15 +29,6 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
         drawExistingLines();
     }
 
-    // stockFactory.list().then(function(data) {
-    //     var tickerArr = [];
-    //     for (var t in data) {
-    //         tickerArr.push(t);
-    //     }
-    //     $scope.tickerDict = data;
-    //     $scope.tickers = tickerArr;
-    // });
-
     // event listeners
     // add stock
     $rootScope.$on('stockAdd', function(event, item) {
@@ -48,8 +41,16 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
         stockFactory.add(item).then(function(data) {
             if (data !== null) {
                 seriesOptions.push(data);
-                $('section.loader').hide();
-                createChart(seriesOptions, 1);
+                // now get graph for portfolio
+                stockFactory.portfolio($rootScope.stocks).then(function(data) {
+                    if (data !== null) {
+                        seriesOptions.splice(indexOfPortfolio, 1);
+                        seriesOptions.push(data);
+                        indexOfPortfolio = seriesOptions.length - 1;
+                        $('section.loader').hide();
+                        createChart(seriesOptions);
+                    }
+                });
             } else {
                 console.log('Error occurred adding stock');
             }
@@ -63,6 +64,13 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
         }
 
         stockFactory.remove(seriesOptions, index);
+        stockFactory.portfolio($rootScope.stocks).then(function(data) {
+            seriesOptions.splice(indexOfPortfolio, 1);
+            seriesOptions.push(data);
+            indexOfPortfolio = seriesOptions.length - 1;
+            $('section.loader').hide();
+            createChart(seriesOptions);
+        })
         createChart(seriesOptions);
     });
 

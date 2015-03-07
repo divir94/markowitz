@@ -46,6 +46,31 @@ angular.module('markoApp').factory('stockFactory', ['$http',
 			return promise;
 		};
 
+		var getPortfolio = function(array) {
+			var promise = $http.get('https://sleepy-cove-7513.herokuapp.com/portfolio/stock', {
+				params: {
+					stocks: array
+				}
+			})
+			.then(function(response) {
+				if (response === null || response.data === null) {
+					return null;
+				}
+				var stock = response.data;
+				var temp = {
+					name: 'Portfolio',
+					color: '#D21F57',
+					dataLabels: name,
+					data: stock.map(function(obj) {
+						return [Date.parse(obj[0]), obj[1]];
+					})
+				};
+				return temp;
+			});
+
+			return promise;
+		}
+
 		// return functions through a closure
 		return {
 			add: function(i) {
@@ -56,6 +81,9 @@ angular.module('markoApp').factory('stockFactory', ['$http',
 			},
 			list: function() {
 				return getListOfStocks();
+			},
+			portfolio: function(arr) {
+				return getPortfolio(arr);
 			}
 		};
 	}
