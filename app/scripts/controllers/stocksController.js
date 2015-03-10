@@ -1,10 +1,9 @@
-var indexOfPortfolio = 1;
-
 angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScope, $scope, $route, $http, stockFactory) {
     $rootScope.activeTab = $route.current.activeTab;
     setHeights();
 
     $scope.selected = undefined;
+    var indexOfPortfolio = 1;
     var seriesOptions = [];
     var colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'];
 
@@ -44,8 +43,11 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
                 // now get graph for portfolio
                 stockFactory.portfolio($rootScope.stocks).then(function(data) {
                     if (data !== null) {
+                        // remove plot of previous portfolio
                         seriesOptions.splice(indexOfPortfolio, 1);
+                        // add newly computed portfolio to array of items to be graphed
                         seriesOptions.push(data);
+                        // set index to be last element after all additions
                         indexOfPortfolio = seriesOptions.length - 1;
                         $('section.loader').hide();
                         createChart(seriesOptions);
