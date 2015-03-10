@@ -1,4 +1,4 @@
-angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $scope, $route, $http) {
+angular.module('markoApp').controller('ComparisonCtrl', function ($rootScope, $scope, $route, $http, stockFactory, strategyFactory) {
     $rootScope.activeTab = $route.current.activeTab;
     setHeights();
     var seriesOptions = [],

@@ -3,6 +3,7 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
     setHeights();
 
     $scope.selected = undefined;
+    var indexOfPortfolio = 1;
     var seriesOptions = [];
     var colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'];
 
@@ -27,15 +28,6 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
         drawExistingLines();
     }
 
-    // stockFactory.list().then(function(data) {
-    //     var tickerArr = [];
-    //     for (var t in data) {
-    //         tickerArr.push(t);
-    //     }
-    //     $scope.tickerDict = data;
-    //     $scope.tickers = tickerArr;
-    // });
-
     // event listeners
     // add stock
     $rootScope.$on('stockAdd', function(event, item) {
@@ -48,8 +40,19 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
         stockFactory.add(item).then(function(data) {
             if (data !== null) {
                 seriesOptions.push(data);
-                $('section.loader').hide();
-                createChart(seriesOptions, 1);
+                // now get graph for portfolio
+                stockFactory.portfolio($rootScope.stocks).then(function(data) {
+                    if (data !== null) {
+                        // remove plot of previous portfolio
+                        seriesOptions.splice(indexOfPortfolio, 1);
+                        // add newly computed portfolio to array of items to be graphed
+                        seriesOptions.push(data);
+                        // set index to be last element after all additions
+                        indexOfPortfolio = seriesOptions.length - 1;
+                        $('section.loader').hide();
+                        createChart(seriesOptions);
+                    }
+                });
             } else {
                 console.log('Error occurred adding stock');
             }
@@ -63,6 +66,13 @@ angular.module('markoApp').controller('StocksPortfolioCtrl', function ($rootScop
         }
 
         stockFactory.remove(seriesOptions, index);
+        stockFactory.portfolio($rootScope.stocks).then(function(data) {
+            seriesOptions.splice(indexOfPortfolio, 1);
+            seriesOptions.push(data);
+            indexOfPortfolio = seriesOptions.length - 1;
+            $('section.loader').hide();
+            createChart(seriesOptions);
+        })
         createChart(seriesOptions);
     });
 
